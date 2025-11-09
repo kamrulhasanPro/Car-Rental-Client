@@ -14,8 +14,8 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-base-100/20 backdrop-blur-md shadow-sm">
-        <MyContainer className={'navbar '}>
+    <div className="bg-base-100/90 backdrop-blur-md shadow-sm z-50 sticky w-full top-16">
+        <MyContainer className={'navbar'}>
         <div className="navbar-start gap-2">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -37,7 +37,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
             >
               {navList}
             </ul>

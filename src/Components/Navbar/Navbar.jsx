@@ -14,7 +14,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-base-100/90 backdrop-blur-md shadow-sm z-50 sticky w-full top-16">
+    <div id="screen-top" className="bg-base-100/90 backdrop-blur-md shadow-sm z-50 sticky w-full top-16">
         <MyContainer className={'navbar'}>
         <div className="navbar-start gap-2">
           <div className="dropdown">

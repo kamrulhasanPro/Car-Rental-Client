@@ -10,7 +10,7 @@ const Feedback = () => {
   const testimonials = [
   {
     name: "John Miller",
-    feedback: "Amazing experience! The car was clean and the pickup process was super smooth. Highly recommended!",
+    feedback: "Amazing experience! The car was clean and the pickup process was super smooth. Highly recommended! Amazing experience! The car was clean and the pickup process was super smooth. Highly recommended! ",
   },
   {
     name: "Aisha Rahman",
@@ -55,7 +55,7 @@ const Feedback = () => {
         {
           testimonials.map((item, index) => (
             <SwiperSlide key={index}>
-              <FeedbackCard/>
+              <FeedbackCard item={item}/>
             </SwiperSlide>
           ))
         }

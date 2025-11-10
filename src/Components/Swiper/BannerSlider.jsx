@@ -18,16 +18,15 @@ const BannerSlider = () => {
       centeredSlides={true}
       loop={true}
     >
-      {
-        image.map((slidingIMG, ind) => (
-      <SwiperSlide key={ind}>
-        <img className="hover:scale-105 duration-200" src={slidingIMG} alt="" />
-      </SwiperSlide>
-        ))
-      }
-      {/* <SwiperSlide>
-        <img src="https://i.postimg.cc/ZqsPQ4rs/h1-rev-img-2b.jpg" alt="" />
-      </SwiperSlide> */}
+      {image.map((slidingIMG, index) => (
+        <SwiperSlide key={index}>
+          <img
+            className="hover:scale-105 duration-200"
+            src={slidingIMG}
+            alt={`Slider ${index + 1}`}
+          />
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };

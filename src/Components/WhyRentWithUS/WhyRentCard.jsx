@@ -4,7 +4,7 @@ const WhyRentCard = ({ feature }) => {
   const { icon, title, desc } = feature;
   return (
     // card
-    <div className="flex flex-col items-center justify-center border border-gray-200 h-72 p-4 hover:shadow-lg transition-shadow">
+    <div className="flex flex-col items-center justify-center border border-gray-200 h-72 p-4 hover:shadow-lg transition-all rounded-sm hover:scale-102 ">
       {/* icon */}
       <div className="bg-primary/20 rounded-full p-2.5 mb-2 text-primary">
         {icon}

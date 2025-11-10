@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
   FaMoneyBillWave,
   FaCarSide,
@@ -22,12 +23,12 @@ const WhyRent = () => {
     {
       icon: <FaCarSide size={40} />,
       title: "Wide Car Selection",
-      desc: "Choose from economy, SUVs, luxury, and premium cars — all well-maintained and ready for any journey, short or long.",
+      desc: "Choose from economy, SUVs, luxury, and premium cars all well maintained and ready for any journey, short or long.",
     },
     {
       icon: <MdSupportAgent size={40} />,
       title: "24/7 Customer Support",
-      desc: "Need help? Our professional support team is always here to assist you — day or night — to ensure a smooth trip.",
+      desc: "Need help? Our professional support team is always here to assist you day or night to ensure a smooth trip.",
     },
     {
       icon: <FaShieldAlt size={40} />,
@@ -54,11 +55,17 @@ const WhyRent = () => {
       </MyTitle>
 
       {/* rant cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+      <motion.div
+        initial={{ opacity: 0, y: 40, scale:0.8}}
+        whileInView={{ opacity: 1, y: 0, scale:1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2"
+      >
         {features.map((feature) => (
           <WhyRentCard feature={feature} />
         ))}
-      </div>
+      </motion.div>
     </MyContainer>
   );
 };

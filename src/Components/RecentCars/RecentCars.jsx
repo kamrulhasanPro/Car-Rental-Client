@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
-import MyTitle from "../../Components/Title/MyTitle";
-import MyContainer from "../../Components/MyContainer/MyContainer";
+import MyTitle from "../Title/MyTitle";
+import MyContainer from "../MyContainer/MyContainer";
 import { axiosPublic } from "../../api/axiosPublic";
-import CarCard from "../../Components/CarCard/CarCard";
+import CarCard from "../CarCard/CarCard";
 import { motion } from "framer-motion";
-import Spinner from "../../Components/Spinner/Spinner";
+import Spinner from "../Spinner/Spinner";
 
-const AllCars = () => {
-  const [allCars, setAllCars] = useState([]);
+const RecentCars = () => {
+  const [recentCars, setRecentCars] = useState([]);
   const [loader, setLoader] = useState(false);
   useEffect(() => {
     setLoader(true);
-    axiosPublic("/cars")
+    axiosPublic("/recent-cars")
       .then((res) => {
         console.log(res);
-        setAllCars(res.data);
+        setRecentCars(res.data);
         setLoader(false);
       })
       .catch((err) => {
@@ -24,12 +24,13 @@ const AllCars = () => {
 
   return (
     <MyContainer className={"mt-16"}>
+
       {/* title */}
       <MyTitle>
-        All <span className="text-primary border-b-2">Cars</span>
+        Newest <span className="text-primary border-b-2">Cars</span>
       </MyTitle>
-
-      {/* all cars */}
+      
+      {/* recent cars */}
       {loader ? (
         <Spinner />
       ) : (
@@ -40,7 +41,7 @@ const AllCars = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
         >
-          {allCars.map((car) => (
+          {recentCars.map((car) => (
             <CarCard key={car._id} car={car} />
           ))}
         </motion.div>
@@ -49,4 +50,4 @@ const AllCars = () => {
   );
 };
 
-export default AllCars;
+export default RecentCars;

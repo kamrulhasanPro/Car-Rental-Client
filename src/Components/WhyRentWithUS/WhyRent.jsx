@@ -55,17 +55,14 @@ const WhyRent = () => {
       </MyTitle>
 
       {/* rant cards */}
-      <motion.div
-        initial={{ opacity: 0, y: 40, scale:0.8}}
-        whileInView={{ opacity: 1, y: 0, scale:1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+      <div
+        
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2"
       >
         {features.map((feature) => (
           <WhyRentCard feature={feature} />
         ))}
-      </motion.div>
+      </div>
     </MyContainer>
   );
 };

@@ -17,11 +17,12 @@ const BannerSlider = () => {
       autoplay={{ delay: 4000 }}
       centeredSlides={true}
       loop={true}
+      speed={1000}
     >
       {image.map((slidingIMG, index) => (
         <SwiperSlide key={index}>
           <img
-            className="hover:scale-105 duration-200"
+            className="hover:scale-105 duration-200 md:min-h-[calc(100vh-63px)] object-cover"
             src={slidingIMG}
             alt={`Slider ${index + 1}`}
           />

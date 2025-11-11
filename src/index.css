@@ -31,6 +31,10 @@
   @apply py-2 px-6 rounded-md btn btn-outline hover:bg-primary border-primary hover:text-white border-2
 }
 
+.my_input{
+  @apply py-1.5 px-2 w-full outline outline-gray-400 rounded-md outline-offset-2 focus:outline-primary
+}
+
 html{
   scroll-behavior: smooth;
 }

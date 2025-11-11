@@ -14,7 +14,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div id="screen-top" className="bg-base-100/90 backdrop-blur-md shadow-sm z-50 sticky w-full top-16">
+    <div id="screen-top" className="bg-base-100/90 backdrop-blur-md shadow-sm z-50 sticky top-0 w-full">
         <MyContainer className={'navbar'}>
         <div className="navbar-start gap-2">
           <div className="dropdown">
@@ -42,12 +42,12 @@ const Navbar = () => {
               {navList}
             </ul>
           </div>
-          <div className="flex items-end justify-center gap-2">
+          <Link to={'/'} className="flex items-end justify-center gap-2">
           <figure className="w-10 h-10 overflow-hidden">
             <img src="./Logo.png" alt="" />
           </figure>
-            <Link to={'/'} className="text-xl font-semibold hidden sm:inline"><span className="text-primary">Car</span> Rental</Link>
-          </div>
+            <p className="text-xl font-semibold hidden sm:inline"><span className="text-primary">Car</span> Rental</p>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu-horizontal gap-6 px-1">{navList}</ul>

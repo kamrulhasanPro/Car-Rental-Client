@@ -29,7 +29,7 @@ const RecentCars = () => {
       <MyTitle>
         Newest <span className="text-primary border-b-2">Cars</span>
       </MyTitle>
-      
+
       {/* recent cars */}
       {loader ? (
         <Spinner />

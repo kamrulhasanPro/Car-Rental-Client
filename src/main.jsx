@@ -6,6 +6,7 @@ import { MainRoute } from './Routes/MainRoute.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    
     <RouterProvider router={MainRoute}/>
   </StrictMode>,
 )

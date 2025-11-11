@@ -8,21 +8,25 @@ import useAuth from "../../Hooks/useAuth";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { loginUser } = useAuth();
-  const navigate = useNavigate()
+  const { loginUser, loader, setLoader } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
 
+    // login user
     loginUser(email, password)
       .then(() => {
         toast.success("Successfully Login!");
-        e.target.reset()
-        navigate('/')
+        e.target.reset();
+        navigate("/");
       })
-      .catch((err) => toast.error(err.code));
+      .catch((err) => {
+        toast.error(err.code)
+        setLoader(false)
+    });
   };
   return (
     <MyContainer className="flex justify-between rounded-3xl overflow-hidden mt-10 shadow">
@@ -82,7 +86,12 @@ const Login = () => {
             Forget Password?
           </p>
 
-          <button className="my_btn btn-block !rounded-full">Sign In</button>
+          <button className="my_btn btn-block !rounded-full">
+            {loader && (
+              <span className="loading loading-spinner loading-sm"></span>
+            )}
+            Sign In
+          </button>
         </form>
         <p className={"divider"}>OR</p>
         <GoogleProvider>Login</GoogleProvider>

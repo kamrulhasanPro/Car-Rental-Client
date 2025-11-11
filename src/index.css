@@ -35,6 +35,10 @@
   @apply py-1.5 px-2 w-full outline outline-gray-200 rounded-full  outline-offset-2 focus:outline-primary
 }
 
+.link_style{
+  @apply flex items-center gap-2 border-b-gray-200 border-b py-1.5
+}
+
 html{
   scroll-behavior: smooth;
 }

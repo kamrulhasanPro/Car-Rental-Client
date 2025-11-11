@@ -10,7 +10,7 @@ import { updateProfile } from "firebase/auth";
 import { axiosPublic } from "../../api/axiosPublic";
 
 const Signup = () => {
-  const { createUser, signOutUser } = useAuth();
+  const { createUser, signOutUser, loader, setLoader } = useAuth();
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
@@ -23,6 +23,13 @@ const Signup = () => {
     const newUser = { name, email, photoURL: profile, password };
     console.log(name, email, profile, password, checkbox);
 
+    // password validation
+    const validation = /([A-Z])([a-z])/
+    if(!validation.test(password)){
+        return toast.error('Must one uppercase or one lowercase.')
+    }
+
+    // create user
     if (checkbox) {
       createUser(email, password)
         .then((res) => {
@@ -48,7 +55,10 @@ const Signup = () => {
             });
           }
         })
-        .catch((err) => toast.error(err.code));
+        .catch((err) => {
+            toast.error(err.code)
+            setLoader(false)
+        });
     } else {
       toast.error("Must be accept Terms & Condition.");
     }
@@ -124,6 +134,7 @@ const Signup = () => {
             <div className="mb-3">
               <input
                 required
+                minLength={6}
                 name="password"
                 type="password"
                 className="my_input"
@@ -143,6 +154,9 @@ const Signup = () => {
             </div>
 
             <button className="my_btn btn-block !rounded-full mt-5">
+              {loader && (
+                <span className="loading loading-spinner loading-sm"></span>
+              )}
               Sign Up
             </button>
           </form>

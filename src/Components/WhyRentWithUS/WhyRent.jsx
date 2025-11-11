@@ -59,8 +59,8 @@ const WhyRent = () => {
         
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2"
       >
-        {features.map((feature) => (
-          <WhyRentCard feature={feature} />
+        {features.map((feature, index) => (
+          <WhyRentCard key={index} feature={feature} />
         ))}
       </div>
     </MyContainer>

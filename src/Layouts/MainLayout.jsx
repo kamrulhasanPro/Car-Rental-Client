@@ -4,8 +4,16 @@ import { Outlet } from "react-router";
 import Footer from "../Components/Footer/Footer";
 import ScrollToTop from "../Components/ScrollToTop/ScrollToTop";
 import PageWrapper from "../Components/PageWrapper/PageWrapper";
+import useAuth from "../Hooks/useAuth";
+import Spinner from "../Components/Spinner/Spinner";
 
 const MainLayout = () => {
+  const {loader} = useAuth()
+  if(loader){
+    return <div className="flex items-center justify-center h-screen">
+      <Spinner/>
+    </div>
+  }
   return (
     <div>
       <ScrollToTop/>

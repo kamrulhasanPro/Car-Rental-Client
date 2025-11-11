@@ -3,13 +3,27 @@ import MyContainer from "../../Components/MyContainer/MyContainer";
 import Logo from "../../Components/Logo/Logo";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import GoogleProvider from "../../Components/GoogleProvider/GoogleProvider";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import useAuth from "../../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Login = () => {
+  const { loginUser } = useAuth();
+  const navigate = useNavigate()
 
-    const handleLogin = (e) => {
-        e.preventDefault()
-    }
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    loginUser(email, password)
+      .then(() => {
+        toast.success("Successfully Login!");
+        e.target.reset()
+        navigate('/')
+      })
+      .catch((err) => toast.error(err.code));
+  };
   return (
     <MyContainer className="flex justify-between rounded-3xl overflow-hidden mt-10 shadow">
       {/* banner */}
@@ -30,7 +44,10 @@ const Login = () => {
         {/* logo */}
         <div className="flex items-center justify-between gap-2">
           <Logo />
-          <Link to={'/register'} className="flex items-center gap-1 text-sm cursor-pointer hover:text-primary transition-all">
+          <Link
+            to={"/register"}
+            className="flex items-center gap-1 text-sm cursor-pointer hover:text-primary transition-all"
+          >
             <IoPersonCircleOutline size={20} />
             Sign Up
           </Link>
@@ -52,11 +69,18 @@ const Login = () => {
 
           {/* Password */}
           <div className="mb-3">
-            <input type="password" name="password" className="my_input" placeholder="Password" />
+            <input
+              type="password"
+              name="password"
+              className="my_input"
+              placeholder="Password"
+            />
           </div>
 
           {/* forget */}
-          <p className="text-sm cursor-pointer mb-5 hover:text-secondary text-primary hover:outline-">Forget Password?</p>
+          <p className="text-sm cursor-pointer mb-5 hover:text-secondary text-primary hover:outline-">
+            Forget Password?
+          </p>
 
           <button className="my_btn btn-block !rounded-full">Sign In</button>
         </form>

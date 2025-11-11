@@ -38,10 +38,11 @@ const Signup = () => {
               axiosPublic
                 .post("/users", newUser)
                 .then((res) => console.log(res));
-              // sign out user
+              // signOut & reset form
               signOutUser().then();
+              e.target.reset();
 
-              //   then navigate login page
+              // then navigate login page
               navigate("/login");
               toast.success("Successfully Register. Please Login.");
             });

@@ -5,8 +5,8 @@ import MyContainer from "../MyContainer/MyContainer";
 import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
-  const authInfo = useAuth()
-  
+  const {user} = useAuth()
+  console.log(user);
   const navList = (
     <>
       <MyLink to={"/"}>Home</MyLink>

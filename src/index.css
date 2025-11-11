@@ -24,7 +24,7 @@
 
 /* my button */
 .my_btn {
-  @apply py-2 px-6 rounded-md text-white bg-gradient-to-r from-primary to-secondary hover:scale-105 hover:to-primary duration-300 transition-all cursor-pointer
+  @apply py-2 px-6 rounded-md text-white bg-gradient-to-r from-primary to-secondary hover:scale-105 hover:brightness-110 duration-300 transition-all cursor-pointer
 }
 
 .my_btn_outline {
@@ -32,7 +32,7 @@
 }
 
 .my_input{
-  @apply py-1.5 px-2 w-full outline outline-gray-400 rounded-md outline-offset-2 focus:outline-primary
+  @apply py-1.5 px-2 w-full outline outline-gray-200 rounded-full  outline-offset-2 focus:outline-primary
 }
 
 html{

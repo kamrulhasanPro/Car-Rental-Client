@@ -6,6 +6,7 @@ import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { MdDoubleArrow } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
 import { IoMdMail } from "react-icons/io";
+import Logo from "../Logo/Logo";
 
 const Footer = () => {
   return (
@@ -22,14 +23,7 @@ const Footer = () => {
           {/* logo and desc */}
           <div className="space-y-6 flex-1">
             {/* logo */}
-            <div className="flex items-end justify-start gap-2">
-              <figure className="w-10 h-10 overflow-hidden">
-                <img src="./Logo.png" alt="" />
-              </figure>
-              <Link to={"/"} className="text-xl font-semibold">
-                <span className="text-primary">Car</span> Rental
-              </Link>
-            </div>
+            <Logo/>
             {/* footer desc */}
             <p>
               Rent smarter, travel better. We offer clean, well-maintained cars,

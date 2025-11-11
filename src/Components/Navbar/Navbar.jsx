@@ -53,7 +53,7 @@ const Navbar = () => {
           <ul className="menu-horizontal gap-6 px-1">{navList}</ul>
         </div>
         <div className="navbar-end">
-          <Link className="my_btn">Login</Link>
+          <Link to={'/login'} className="my_btn">Login</Link>
         </div>
     </MyContainer>
       </div>

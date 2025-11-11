@@ -2,8 +2,11 @@ import React from "react";
 import MyLink from "./MyLink";
 import { Link, NavLink } from "react-router";
 import MyContainer from "../MyContainer/MyContainer";
+import useAuth from "../../Hooks/useAuth";
 
 const Navbar = () => {
+  const authInfo = useAuth()
+  
   const navList = (
     <>
       <MyLink to={"/"}>Home</MyLink>

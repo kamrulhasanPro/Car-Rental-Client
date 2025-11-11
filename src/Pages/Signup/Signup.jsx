@@ -1,21 +1,57 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Logo from "../../Components/Logo/Logo";
 import MyContainer from "../../Components/MyContainer/MyContainer";
 import GoogleProvider from "../../Components/GoogleProvider/GoogleProvider";
 import { IoPersonCircleOutline } from "react-icons/io5";
+import useAuth from "../../Hooks/useAuth";
+import { toast } from "react-toastify";
+import { updateProfile } from "firebase/auth";
+import { axiosPublic } from "../../api/axiosPublic";
 
 const Signup = () => {
-    const handleRegister = (e) => {
-        e.preventDefault();
-        const name = e.target.name.value;
-        const email = e.target.email.value;
-        const profile = e.target.profile.value;
-        const password = e.target.password.value;
-        const checkbox = e.target.checkbox.checked
-        console.log(name, email, profile, password, checkbox);
-        
-    } 
+  const { createUser, signOutUser } = useAuth();
+  const navigate = useNavigate();
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const profile = e.target.profile.value;
+    const password = e.target.password.value;
+    const checkbox = e.target.checkbox.checked;
+    const newUser = { name, email, photoURL: profile, password };
+    console.log(name, email, profile, password, checkbox);
+
+    if (checkbox) {
+      createUser(email, password)
+        .then((res) => {
+          const user = res.user;
+          console.log(user);
+          if (user) {
+            // update name and photoURL
+            updateProfile(user, {
+              displayName: name,
+              photoURL: profile,
+            }).then(() => {
+              // user data and in database
+              axiosPublic
+                .post("/users", newUser)
+                .then((res) => console.log(res));
+              // sign out user
+              signOutUser().then();
+
+              //   then navigate login page
+              navigate("/login");
+              toast.success("Successfully Register. Please Login.");
+            });
+          }
+        })
+        .catch((err) => toast.error(err.code));
+    } else {
+      toast.error("Must be accept Terms & Condition.");
+    }
+  };
   return (
     <>
       <MyContainer className="flex justify-between rounded-3xl overflow-hidden mt-10 shadow bg-neutral ">
@@ -86,9 +122,9 @@ const Signup = () => {
             {/* Password */}
             <div className="mb-3">
               <input
-              required
-              name="password"
-                type="text"
+                required
+                name="password"
+                type="password"
                 className="my_input"
                 placeholder="New password"
               />

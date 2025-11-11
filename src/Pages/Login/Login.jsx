@@ -6,10 +6,14 @@ import GoogleProvider from "../../Components/GoogleProvider/GoogleProvider";
 import { Link } from "react-router";
 
 const Login = () => {
+
+    const handleLogin = (e) => {
+        e.preventDefault()
+    }
   return (
-    <MyContainer className="flex justify-between rounded-2xl overflow-hidden mt-10 shadow">
+    <MyContainer className="flex justify-between rounded-3xl overflow-hidden mt-10 shadow">
       {/* banner */}
-      <div className="hidden sm:flex flex-col items-center justify-center flex-1 bg-neutral text-white p-5">
+      <div className="hidden sm:flex flex-col items-center justify-center flex-1 bg-neutral text-white p-5 rounded-3xl overflow-hidden">
         <p className="text-4xl text-center">
           Easy <span className="text-primary border-b-2">Car</span> Rental
         </p>
@@ -33,13 +37,14 @@ const Login = () => {
         </div>
 
         {/* form */}
-        <form className="mt-10">
+        <form onSubmit={handleLogin} className="mt-10">
           <h4 className="text-3xl font-semibold mb-5">Sign In</h4>
 
           {/* email */}
           <div>
             <input
               type="text"
+              name="email"
               className="my_input mb-4"
               placeholder="Email or Username"
             />
@@ -47,7 +52,7 @@ const Login = () => {
 
           {/* Password */}
           <div className="mb-3">
-            <input type="text" className="my_input" placeholder="Password" />
+            <input type="password" name="password" className="my_input" placeholder="Password" />
           </div>
 
           {/* forget */}

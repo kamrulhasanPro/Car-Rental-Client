@@ -3,7 +3,7 @@ import useAuth from "../../Hooks/useAuth";
 import { useAxiosSecure } from "../../api/useAxiosSecure";
 import { toast } from "react-toastify";
 
-const BookingModal = ({ car }) => {
+const BookingModal = ({ car, setIsAvailable }) => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const {_id, carName, description, image, pricePerDay, category, seats } = car;
@@ -20,6 +20,7 @@ const BookingModal = ({ car }) => {
       clientEmail,
       clientContact,
       clientAddress,
+      productId:_id,
       carName,
       description,
       image,
@@ -30,12 +31,19 @@ const BookingModal = ({ car }) => {
     };
     console.log(newBookingCar);
     axiosSecure.post('/booking-cars', newBookingCar)
-    .then(res => console.log(res))
+    .then(res => {
+        console.log(res)
+        e.target.reset()
+        setIsAvailable(false)
+        toast.success('Successfully booking.')
+        document.getElementById("my_modal_5").close()
+    })
     .catch(err => toast.error(err.code))
 
     axiosSecure.patch(`/cars/${_id}`, {carStatus: 'booked'})
     .then(res => console.log(res))
     .catch(err => console.log(err))
+
   };
   return (
     <div>

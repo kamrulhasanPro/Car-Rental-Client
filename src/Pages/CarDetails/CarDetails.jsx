@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { useAxiosSecure } from "../../api/useAxiosSecure";
 import { toast } from "react-toastify";
 import Spinner from "../../Components/Spinner/Spinner";
@@ -11,25 +11,28 @@ import { FaArrowLeft, FaStar } from "react-icons/fa";
 import { FcRating } from "react-icons/fc";
 import BookingModal from "../../Components/Modal/BookingModal";
 import SellerInfo from "../../Components/CarDetails/SellerInfo";
+import { FaRegFaceSmile } from "react-icons/fa6";
 
 const CarDetails = () => {
   const axiosSecure = useAxiosSecure();
   const { id } = useParams();
-  const [car, setCar] = useState(null);
+  const [car, setCar] = useState([]);
+  const [loader, setLoader] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
+    setLoader(true);
     axiosSecure(`/cars/${id}`)
       .then((res) => {
         console.log(res);
         setCar(res.data);
+        setLoader(false);
       })
-      .catch((err) => toast.error(err.code));
+      .catch((err) => {
+        toast.error(err.code);
+        setLoader(false);
+      });
   }, [id, axiosSecure]);
-
-  if (!car) {
-    return <Spinner></Spinner>;
-  }
 
   const {
     carName,
@@ -42,6 +45,35 @@ const CarDetails = () => {
     seats,
     created_at,
   } = car;
+
+  const [isAvailable, setIsAvailable] = useState(false);
+  useEffect(() => {
+    setIsAvailable(carStatus == "available");
+  }, [carStatus]);
+
+  if (loader) {
+    return <Spinner></Spinner>;
+  }
+
+  if (car.length === 0) {
+    return (
+      <div className="flex items-center justify-center mt-10">
+        <MyContainer className="flex flex-col max-w-80 items-center justify-center bg-white p-4 text-center rounded-2xl gap-2.5 shadow">
+          <FaRegFaceSmile className="text-3xl text-primary" />
+          <div>
+            <h5 className="text-3xl mb-1">No found this product</h5>
+            <p className="text-gray-400">
+              Maybe not added this car. Please check another car.{" "}
+            </p>
+          </div>
+          <Link to={"/cars"} className="my_btn">
+            All Cars
+          </Link>
+        </MyContainer>
+      </div>
+    );
+  }
+
   return (
     <MyContainer className={"mt-10"}>
       <div className="flex flex-col md:flex-row gap-4">
@@ -102,8 +134,12 @@ const CarDetails = () => {
                 <GrStatusGoodSmall /> Status
               </span>
               :{" "}
-              <button className={`py-.5 px-2 text-white ${carStatus == 'available' ? 'bg-success' : 'bg-red-500'} rounded-full`}>
-                {carStatus}
+              <button
+                className={`py-.5 px-2 text-white ${
+                  isAvailable  ? "bg-success" : "bg-red-500"
+                } rounded-full`}
+              >
+                {isAvailable ? "available" : "booked"}
               </button>
             </p>
 
@@ -145,8 +181,15 @@ const CarDetails = () => {
           </div>
 
           <button
-            onClick={() => document.getElementById("my_modal_5").showModal()}
-            className="my_btn btn-block"
+            onClick={() => {
+              if (!isAvailable) {
+                return toast.error("Already Booked.");
+              }
+              document.getElementById("my_modal_5").showModal();
+            }}
+            className={`my_btn btn-block ${
+              isAvailable || "!cursor-not-allowed"
+            }`}
           >
             Book Now
           </button>
@@ -154,7 +197,7 @@ const CarDetails = () => {
       </div>
 
       {/* modal */}
-      <BookingModal car={car} />
+      <BookingModal car={car} setIsAvailable={setIsAvailable} />
     </MyContainer>
   );
 };

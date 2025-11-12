@@ -46,10 +46,12 @@ const MyBookings = () => {
     );
   }
 
+  const share = {booked, setBooked}
+
   return (
     <MyContainer>
       {booked.map((car) => (
-        <BookingCard key={car._id} car={car}/>
+        <BookingCard key={car._id} share={share} car={car}/>
       ))}
     </MyContainer>
   );

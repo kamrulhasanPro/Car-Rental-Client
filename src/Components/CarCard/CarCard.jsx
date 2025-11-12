@@ -3,12 +3,12 @@ import { Link } from "react-router";
 
 const CarCard = ({ car }) => {
   const {
+    _id,
     carName,
     carStatus,
     category,
     image,
     pricePerDay,
-    ratings,
     description,
   } = car;
   const shortDescription =
@@ -33,7 +33,7 @@ const CarCard = ({ car }) => {
             <p className="text-gray-600 text-sm">per day</p>
             <p className="text-lg font-semibold">${pricePerDay}.00</p>
         </div>
-        <button className="my_btn_outline">View Details</button>
+        <Link to={`/cars/${_id}`} className="my_btn_outline">View Details</Link>
       </div>
       </div>
     </div>

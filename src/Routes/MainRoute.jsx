@@ -5,6 +5,8 @@ import AllCars from "../Pages/AllCars/AllCars";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
 import AuthLayout from "../Layouts/AuthLayout";
+import CarDetails from "../Pages/CarDetails/CarDetails";
+import PrivetRoute from "./PrivetRoute";
 
 export const MainRoute = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ export const MainRoute = createBrowserRouter([
         path: "/cars",
         Component: AllCars,
       },
+      {
+        path: '/cars/:id',
+        element: (
+          <PrivetRoute>
+            <CarDetails/>
+          </PrivetRoute>
+        )
+      }
     ],
   },
   {

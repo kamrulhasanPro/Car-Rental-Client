@@ -21,7 +21,7 @@ const MainLayout = () => {
           <Navbar />
         </nav>
       
-      <main>
+      <main className="min-h-[calc(100vh-65px-427px)] mx-auto">
         <PageWrapper>
           <Outlet />
         </PageWrapper>

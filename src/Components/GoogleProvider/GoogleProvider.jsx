@@ -1,10 +1,39 @@
 import React, { Children } from "react";
+import useAuth from "../../Hooks/useAuth";
+import { googleProvider } from "../../Firebase/firebase.config";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const GoogleProvider = ({children}) => {
+    const {otherLoginUser, setLoader} = useAuth()
+    const navigate = useNavigate()
+
+    // google login
+    const handleGoogle = () => {
+        otherLoginUser(googleProvider)
+        .then((res)=> {
+            const user = res.user;
+            if(user){
+                const newUser = {
+                    email: user.email,
+                    name: user.displayName,
+                    photoURL: user.photoURL,
+                    provider: user.providerData.providerId,
+                }
+            }
+
+           toast.success("Successfully Login!");
+           navigate("/");
+        })
+        .catch((err) => {
+            toast.error(err.code)
+            setLoader(false)
+        })
+    }
   return (
     <>
       {/* Google */}
-      <button className="btn btn-block rounded-full bg-white text-black border-[#e5e5e5]">
+      <button onClick={handleGoogle} className="btn btn-block rounded-full bg-white text-black border-[#e5e5e5]">
         <svg
           aria-label="Google logo"
           width="24"

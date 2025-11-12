@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, signOutUser } = useAuth();
+  console.log(user);
   const handleLogout = () => {
     signOutUser()
     .then(() => toast.success('Logout Success'))
@@ -76,7 +77,7 @@ const Navbar = () => {
           {user ? (
             <CustomDropdown
               trigger={
-                <figure className="w-11 h-11 rounded-full overflow-hidden">
+                <figure className="w-11 h-11 rounded-full overflow-hidden cursor-pointer">
                   <img src={user?.photoURL} alt="profile image" />
                 </figure>
               }

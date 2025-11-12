@@ -24,9 +24,9 @@ const Signup = () => {
     console.log(name, email, profile, password, checkbox);
 
     // password validation
-    const validation = /([A-Z])([a-z])/
-    if(!validation.test(password)){
-        return toast.error('Must one uppercase or one lowercase.')
+    const validation = /([A-Z])([a-z])/;
+    if (!validation.test(password)) {
+      return toast.error("Must one uppercase or one lowercase.");
     }
 
     // create user
@@ -41,10 +41,12 @@ const Signup = () => {
               displayName: name,
               photoURL: profile,
             }).then(() => {
-              // user data and in database
-              axiosPublic
-                .post("/users", newUser)
-                .then((res) => console.log(res));
+                // add provider
+                (newUser.provider = user.providerData.providerId),
+                // user data and in database
+                axiosPublic
+                  .post("/users", newUser)
+                  .then((res) => console.log(res));
               // signOut & reset form
               signOutUser().then();
               e.target.reset();
@@ -56,8 +58,8 @@ const Signup = () => {
           }
         })
         .catch((err) => {
-            toast.error(err.code)
-            setLoader(false)
+          toast.error(err.code);
+          setLoader(false);
         });
     } else {
       toast.error("Must be accept Terms & Condition.");

@@ -21,7 +21,7 @@ export const useAxiosSecure = () => {
     );
 
     // clean
-    return () => reqInterceptor();
+    return () => instance.interceptors.request.eject(reqInterceptor);
   });
 
   return instance;

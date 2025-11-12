@@ -8,6 +8,7 @@ import AuthLayout from "../Layouts/AuthLayout";
 import CarDetails from "../Pages/CarDetails/CarDetails";
 import PrivetRoute from "./PrivetRoute";
 import MyBookings from "../Pages/MyBookings/MyBookings";
+import AddCar from "../Pages/AddCar/AddCar";
 
 export const MainRoute = createBrowserRouter([
   {
@@ -37,7 +38,15 @@ export const MainRoute = createBrowserRouter([
             <MyBookings/>
           </PrivetRoute>
         )
-      }
+      },
+      {
+        path: '/add-car',
+        element: (
+          <PrivetRoute>
+            <AddCar/>
+          </PrivetRoute>
+        )
+      },
     ],
   },
   {

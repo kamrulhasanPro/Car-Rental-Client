@@ -6,7 +6,8 @@ import { toast } from "react-toastify";
 const BookingModal = ({ car, setIsAvailable }) => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
-  const {_id, carName, description, image, pricePerDay, category, seats } = car;
+  const { _id, carName, description, image, pricePerDay, category, seats } =
+    car;
 
   const handleBooked = (e) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ const BookingModal = ({ car, setIsAvailable }) => {
       clientEmail,
       clientContact,
       clientAddress,
-      productId:_id,
+      productId: _id,
       carName,
       description,
       image,
@@ -30,20 +31,21 @@ const BookingModal = ({ car, setIsAvailable }) => {
       bookingTime: new Date(),
     };
     console.log(newBookingCar);
-    axiosSecure.post('/booking-cars', newBookingCar)
-    .then(res => {
-        console.log(res)
-        e.target.reset()
-        setIsAvailable(false)
-        toast.success('Successfully booking.')
-        document.getElementById("my_modal_5").close()
-    })
-    .catch(err => toast.error(err.code))
+    axiosSecure
+      .post("/booking-cars", newBookingCar)
+      .then((res) => {
+        console.log(res);
+        e.target.reset();
+        setIsAvailable(false);
+        toast.success("Successfully booking.");
+        document.getElementById("my_modal_5").close();
+      })
+      .catch((err) => toast.error(err.code));
 
-    axiosSecure.patch(`/cars/${_id}`, {carStatus: 'booked'})
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
-
+    axiosSecure
+      .patch(`/cars/${_id}`, { carStatus: "booked" })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
   return (
     <div>
@@ -55,6 +57,7 @@ const BookingModal = ({ car, setIsAvailable }) => {
             <div>
               <label htmlFor="name">Name</label>
               <input
+                required
                 type="text"
                 id="name"
                 value={user.displayName}
@@ -68,6 +71,7 @@ const BookingModal = ({ car, setIsAvailable }) => {
             <div className="mt-3">
               <label htmlFor="email">Email</label>
               <input
+                required
                 type="email"
                 id="email"
                 value={user.email}
@@ -81,6 +85,7 @@ const BookingModal = ({ car, setIsAvailable }) => {
             <div className="mt-3">
               <label htmlFor="contact">Contact</label>
               <input
+                required
                 type="text"
                 id="contact"
                 name="contact"
@@ -93,6 +98,7 @@ const BookingModal = ({ car, setIsAvailable }) => {
             <div className="mt-3">
               <label htmlFor="address">Address</label>
               <input
+                required
                 type="text"
                 id="address"
                 name="address"

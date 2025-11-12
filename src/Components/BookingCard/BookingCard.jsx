@@ -8,6 +8,7 @@ import { Link } from "react-router";
 import { useAxiosSecure } from "../../api/useAxiosSecure";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 const BookingCard = ({ car, share }) => {
   const axiosSecure = useAxiosSecure();
@@ -17,14 +18,8 @@ const BookingCard = ({ car, share }) => {
     bookingTime,
     carName,
     category,
-    clientAddress,
-    clientContact,
-    clientEmail,
     clientName,
     description,
-    image,
-    pricePerDay,
-    seats,
   } = car;
   console.log(productId);
   const shortDescription =
@@ -47,7 +42,7 @@ const BookingCard = ({ car, share }) => {
             console.log(res);
             const remaining = share.booked.filter((item) => item._id !== _id);
             console.log(remaining);
-            share.setBooked(remaining)
+            share.setBooked(remaining);
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",
@@ -66,7 +61,9 @@ const BookingCard = ({ car, share }) => {
 
   const actionBtn = (
     <>
-      <button className="btn btn-success text-white">Details</button>
+      <Link to={`/cars/${productId}`} className="btn btn-success text-white">
+        Details
+      </Link>
       <button
         onClick={handleRemove}
         className="btn btn-secondary bg-red-400 text-white"
@@ -80,7 +77,13 @@ const BookingCard = ({ car, share }) => {
     "py-1 px-1.5 flex items-center justify-center rounded-full gap-1";
 
   return (
-    <div className="flex flex-col md:flex-row md:items-center gap-2 justify-between my_bg text-white rounded-xl p-4 mt-4">
+    <motion.div
+      initial={{ opacity: 0, y: 40, scale: 0.8 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="flex flex-col md:flex-row md:items-center gap-2 justify-between my_bg text-white rounded-xl p-4 mb-4"
+    >
       {/* details */}
       <div className="flex-2">
         <h5 className="text-2xl font-medium">{carName}</h5>
@@ -108,12 +111,13 @@ const BookingCard = ({ car, share }) => {
 
       {/* action */}
       <div className="md:flex-1 flex md:justify-end">
-        <div className="hidden md:inline">
+        <div className="hidden md:inline relative">
           <CustomDropdown
             trigger={
               <BsThreeDotsVertical size={24} className="cursor-pointer" />
             }
-            className={"right-1/12 top-2/12"}
+            height={30}
+            className={"right-5 top-0"}
           >
             <div className="flex flex-col bg-white p-2 rounded-lg gap-2 ">
               {actionBtn}
@@ -122,7 +126,7 @@ const BookingCard = ({ car, share }) => {
         </div>
         <div className="space-x-2 md:hidden">{actionBtn}</div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

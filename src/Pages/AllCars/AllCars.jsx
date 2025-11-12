@@ -6,15 +6,16 @@ import CarCard from "../../Components/CarCard/CarCard";
 import { motion } from "framer-motion";
 import Spinner from "../../Components/Spinner/Spinner";
 import { IoSearchSharp } from "react-icons/io5";
-import { FaFilter } from "react-icons/fa6";
+import { FaFilter, FaRegFaceSmile } from "react-icons/fa6";
 import { FaSortAlphaUp } from "react-icons/fa";
+import { Link } from "react-router";
 
 const AllCars = () => {
   const [allCars, setAllCars] = useState([]);
   const [loader, setLoader] = useState(false);
-  const [brand, setBrand] = useState("All")
-  const [sort, setSort] = useState("Normal")
-  const [search, setSearch] = useState("")
+  const [brand, setBrand] = useState("All");
+  const [sort, setSort] = useState("Normal");
+  const [search, setSearch] = useState("");
   console.log(search);
 
   useEffect(() => {
@@ -41,7 +42,6 @@ const AllCars = () => {
       <section className="flex flex-col md:flex-row gap-4">
         {/* filter, search, sort */}
         <div className="flex-1 w-full md:w-auto  flex flex-col justify-between items-center md:items-stretch md:border-r-4 border-r-gray-300 md:pr-3 sticky  md:top-18 self-start">
-
           {/* search cars */}
           <div className="flex items-center justify-between border border-gray-400 focus-within:border-primary rounded-full overflow-hidden">
             <input
@@ -112,13 +112,25 @@ const AllCars = () => {
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+              className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4"
             >
-              {allCars.map((car) => (
-                <CarCard key={car._id} car={car} />
-              ))}
+              {allCars.length === 0 ? (
+                <div className="flex col-span-3 items-center justify-center mt-10">
+                  <div className="flex flex-col max-w-80 items-center justify-center bg-white p-4 text-center rounded-2xl gap-2.5 shadow">
+                    <FaRegFaceSmile className="text-3xl text-primary" />
+                    <div>
+                      <h5 className="text-3xl mb-1">Not found cars</h5>
+                      <p className="text-gray-400">
+                        Seller not added this Category cars. Please check another category.{" "}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                allCars.map((car) => <CarCard key={car._id} car={car} />)
+              )}
             </motion.div>
           )}
         </div>

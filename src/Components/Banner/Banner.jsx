@@ -5,14 +5,14 @@ import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
-    <section id="screen-top" className="flex flex-col-reverse md:flex-row items-center justify-between bg-neutral md:pl-[5%] relative">
+    <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-neutral md:pl-[5%] relative">
       <div className="flex-1"></div>
 
       {/* content */}
       <div className="bg-linear-to-t md:bg-linear-to-r from-neutral from-75% h-full to-transparent text-white flex-1 relative md:absolute bottom-15 md:bottom-0 w-full md:w-6/12  z-10 flex flex-col items-start  justify-center px-[9%] md:p-0 ">
         <motion.div
           animate={{
-            x: ["-100%", "0%"],
+            x: ["-20%", "0%"],
           }}
           transition={{
             duration: 2,

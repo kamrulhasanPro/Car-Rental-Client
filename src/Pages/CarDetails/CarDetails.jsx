@@ -87,8 +87,8 @@ const CarDetails = () => {
             Go Back
           </button>
 
-          <figure className=" bg-primary/10 rounded-xl">
-            <img src={image} alt="" />
+          <figure className=" bg-primary/10 rounded-xl h-80">
+            <img className="w-full h-full object-cover" src={image} alt="" />
           </figure>
 
           <div className="hidden md:block">

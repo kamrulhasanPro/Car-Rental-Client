@@ -7,6 +7,7 @@ import { FaRegFaceSmile } from "react-icons/fa6";
 import MyContainer from "../../Components/MyContainer/MyContainer";
 import { Link } from "react-router";
 import BookingCard from "../../Components/BookingCard/BookingCard";
+import MyTitle from "../../Components/Title/MyTitle";
 
 const MyBookings = () => {
   const { user } = useAuth();
@@ -49,7 +50,10 @@ const MyBookings = () => {
   const share = {booked, setBooked}
 
   return (
-    <MyContainer>
+    <MyContainer className={'mt-16'}>
+        <MyTitle>
+            My Bookings <span className="text-primary border-b-2">Cars</span>
+        </MyTitle>
       {booked.map((car) => (
         <BookingCard key={car._id} share={share} car={car}/>
       ))}

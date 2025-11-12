@@ -79,9 +79,14 @@ const Footer = () => {
               </a>
             </div>
 
-            <a href="#screen-top" className="my_btn_outline">
+            <button onClick={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+              })
+            }} className="my_btn_outline">
               <MdDoubleArrow className="-rotate-90" /> BACK TO TOP
-            </a>
+            </button>
           </div>
         </MyContainer>
       </section>

@@ -29,7 +29,6 @@ const Navbar = () => {
   );
   return (
     <div
-      id="screen-top"
       className="bg-base-100/90 backdrop-blur-md shadow-sm z-50 sticky top-0 w-full"
     >
       <MyContainer className={"navbar"}>

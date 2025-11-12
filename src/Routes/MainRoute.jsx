@@ -7,6 +7,7 @@ import Signup from "../Pages/Signup/Signup";
 import AuthLayout from "../Layouts/AuthLayout";
 import CarDetails from "../Pages/CarDetails/CarDetails";
 import PrivetRoute from "./PrivetRoute";
+import MyBookings from "../Pages/MyBookings/MyBookings";
 
 export const MainRoute = createBrowserRouter([
   {
@@ -26,6 +27,14 @@ export const MainRoute = createBrowserRouter([
         element: (
           <PrivetRoute>
             <CarDetails/>
+          </PrivetRoute>
+        )
+      },
+      {
+        path: '/my-bookings',
+        element: (
+          <PrivetRoute>
+            <MyBookings/>
           </PrivetRoute>
         )
       }

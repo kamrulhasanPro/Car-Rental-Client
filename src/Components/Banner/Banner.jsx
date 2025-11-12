@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
-    <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-neutral md:pl-[5%] relative">
+    <section id="screen-top" className="flex flex-col-reverse md:flex-row items-center justify-between bg-neutral md:pl-[5%] relative">
       <div className="flex-1"></div>
 
       {/* content */}

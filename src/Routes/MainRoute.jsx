@@ -11,6 +11,7 @@ import MyBookings from "../Pages/MyBookings/MyBookings";
 import AddCar from "../Pages/AddCar/AddCar";
 import MyListings from "../Pages/MyListings/MyListings";
 import NotFoundPageLayout from "../Layouts/NotFoundPageLayout";
+import TermsCondition from "../Pages/Terms&Condition/TermsCondition";
 
 export const MainRoute = createBrowserRouter([
   {
@@ -57,6 +58,11 @@ export const MainRoute = createBrowserRouter([
           </PrivetRoute>
         ),
       },
+      {
+        path: "/terms-and-condition",
+        Component: TermsCondition,
+      },
+
     ],
   },
   {

@@ -56,7 +56,7 @@ const Footer = () => {
             <p className="text-xl">Company</p>
             <ul className="text-gray-300 space-y-0.5">
               <li>
-                <Link>Terms & Condition</Link>
+                <Link to={'/terms-and-condition'}>Terms & Condition</Link>
               </li>
               <li>
                 <Link>About Us</Link>

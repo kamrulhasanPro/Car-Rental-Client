@@ -33,23 +33,25 @@ const BookingCard = ({ car, share }) => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, remove it!",
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure
           .delete(`/booking-cars/${_id}`)
           .then((res) => {
             console.log(res);
-            const remaining = share.booked.filter((item) => item._id !== _id);
-            console.log(remaining);
-            share.setBooked(remaining);
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success",
-            });
+            if (res.data.deletedCount) {
+              const remaining = share.booked.filter((item) => item._id !== _id);
+              console.log(remaining);
+              share.setBooked(remaining);
+              Swal.fire({
+                title: "Removed!",
+                text: "Your booking has been removed.",
+                icon: "success",
+              });
+            }
           })
-          .catch((err) => console.log(err.code));
+          .catch((err) => toast.error(err.code));
 
         axiosSecure
           .patch(`/cars/${productId}`, { carStatus: "available" })

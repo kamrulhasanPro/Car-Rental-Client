@@ -40,7 +40,7 @@ const MyListings = () => {
           </p>
         </div>
         <Link to={"/add-car"} className="my_btn">
-          Add Your First Booking
+          Add Your First Post
         </Link>
       </MyContainer>
     </div>

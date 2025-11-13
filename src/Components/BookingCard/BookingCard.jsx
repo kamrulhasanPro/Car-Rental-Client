@@ -9,6 +9,7 @@ import { useAxiosSecure } from "../../api/useAxiosSecure";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
+import { Tooltip } from "react-tooltip";
 
 const BookingCard = ({ car, share }) => {
   const axiosSecure = useAxiosSecure();
@@ -106,7 +107,7 @@ const BookingCard = ({ car, share }) => {
         <p className="mt-2">
           {shortDescription}
           {description.length > 100 && (
-            <Link className="text-indigo-600"> ...More</Link>
+            <span data-tooltip-content={description} data-tooltip-id={`desc-${_id}`} className="text-indigo-600 hover:underline"> ...More</span>
           )}
         </p>
       </div>
@@ -128,6 +129,14 @@ const BookingCard = ({ car, share }) => {
         </div>
         <div className="space-x-2 md:hidden">{actionBtn}</div>
       </div>
+      <Tooltip
+      id={`desc-${_id}`}
+      place="top"
+      style={{
+        background: '#111',
+        maxWidth: '300px'
+      }}
+      />
     </motion.div>
   );
 };

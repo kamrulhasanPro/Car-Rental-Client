@@ -10,6 +10,7 @@ import PrivetRoute from "./PrivetRoute";
 import MyBookings from "../Pages/MyBookings/MyBookings";
 import AddCar from "../Pages/AddCar/AddCar";
 import MyListings from "../Pages/MyListings/MyListings";
+import NotFoundPageLayout from "../Layouts/NotFoundPageLayout";
 
 export const MainRoute = createBrowserRouter([
   {
@@ -25,36 +26,36 @@ export const MainRoute = createBrowserRouter([
         Component: AllCars,
       },
       {
-        path: '/cars/:id',
+        path: "/cars/:id",
         element: (
           <PrivetRoute>
-            <CarDetails/>
+            <CarDetails />
           </PrivetRoute>
-        )
+        ),
       },
       {
-        path: '/my-bookings',
+        path: "/my-bookings",
         element: (
           <PrivetRoute>
-            <MyBookings/>
+            <MyBookings />
           </PrivetRoute>
-        )
+        ),
       },
       {
-        path: '/add-car',
+        path: "/add-car",
         element: (
           <PrivetRoute>
-            <AddCar/>
+            <AddCar />
           </PrivetRoute>
-        )
+        ),
       },
       {
-        path: '/my-listings',
+        path: "/my-listings",
         element: (
           <PrivetRoute>
-            <MyListings/>
+            <MyListings />
           </PrivetRoute>
-        )
+        ),
       },
     ],
   },
@@ -71,5 +72,9 @@ export const MainRoute = createBrowserRouter([
         Component: Signup,
       },
     ],
+  },
+  {
+    path: "/*",
+    Component: NotFoundPageLayout,
   },
 ]);

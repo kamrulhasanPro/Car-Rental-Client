@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router";
 import { motion } from "framer-motion";
+import { Tooltip } from "react-tooltip";
+// import "react-tooltip/dist/react-tooltip.css";
+
 
 const CarCard = ({ car }) => {
   const { _id, carName, carStatus, category, image, pricePerDay, description } =
@@ -41,7 +44,9 @@ const CarCard = ({ car }) => {
         <p className="text-sm text-gray-400 grow">
           {shortDescription}
           {description.length > 100 && (
-            <Link className="text-indigo-600"> ...More</Link>
+            <span 
+            data-tooltip-id={`desc-${_id}`}
+            data-tooltip-content={description}  className="text-indigo-600 hover:underline"> ...More</span>
           )}
         </p>
         <div className="flex gap-2 items-center justify-between mt-4">
@@ -54,6 +59,14 @@ const CarCard = ({ car }) => {
           </Link>
         </div>
       </div>
+      <Tooltip 
+      id={`desc-${_id}`}
+      place="top-end"
+      style={{
+          backgroundColor: "#111",
+          maxWidth: "300px",
+        }}
+      />
     </motion.div>
   );
 };

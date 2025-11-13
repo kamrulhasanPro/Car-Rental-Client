@@ -104,7 +104,7 @@ const CarDetails = () => {
           <div className="bg-white rounded-2xl p-4">
             <h5 className="text-2xl font-semibold">Car Description</h5>
             <div className="divider my-1"></div>
-            <p>{description}</p>
+            <p className="whitespace-break-spaces">{description}</p>
           </div>
 
           {/* features or other */}

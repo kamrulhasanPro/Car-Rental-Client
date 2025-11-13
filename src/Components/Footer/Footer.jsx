@@ -23,7 +23,7 @@ const Footer = () => {
           {/* logo and desc */}
           <div className="space-y-6 flex-1">
             {/* logo */}
-            <Logo/>
+            <Logo />
             {/* footer desc */}
             <p>
               Rent smarter, travel better. We offer clean, well-maintained cars,
@@ -68,30 +68,35 @@ const Footer = () => {
               <a href="#" target="_blank">
                 <FaXTwitter />
               </a>
-              <a href="#" target="_blank">
+              <a href="https://www.linkedin.com/in/kamrulmiazi" target="_blank">
                 <FaLinkedin />
               </a>
-              <a href="#" target="_blank">
+              <a href="https://www.instagram.com/kamrulmiazi" target="_blank">
                 <FaInstagram />
               </a>
-              <a href="#" target="_blank">
+              <a href="https://www.facebook.com/mrkamrulmiazi" target="_blank">
                 <FaFacebook />
               </a>
             </div>
 
-            <button onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-              })
-            }} className="my_btn_outline">
+            <button
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
+              }}
+              className="my_btn_outline"
+            >
               <MdDoubleArrow className="-rotate-90" /> BACK TO TOP
             </button>
           </div>
         </MyContainer>
       </section>
       <div className="p-1 my_bg text-center text-white">
-        <p className="text-sm">Copyright © 2025 Car Rental. All rights reserved.</p>
+        <p className="text-sm">
+          Copyright © 2025 Car Rental. All rights reserved.
+        </p>
       </div>
     </>
   );

@@ -1,16 +1,28 @@
-# React + Vite
+# **App Name:** Car Rental
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Client Site URL:** [https://car-rental-9358d.web.app/](https://car-rental-9358d.web.app)
 
-Currently, two official plugins are available:
+**Live Server Site URL:** [https://car-rental-server-pi-three.vercel.app](https://car-rental-server-pi-three.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Car Rental is a modern and responsive website built in React. It allows easily search, browse, rant car, update, delete, cars filtering, cars sorting and post your car. I try batter UI design. 
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
+- 🔍 **Car Search Filter & Sorting:**
+User can search by car name. If user know brand filter and Sorting with High to Low price, Low to High Price, Newest, Oldest.
+- 🧭 **Slider:** Use  beautiful slider based on car showing with automatic and navigation.
+- 💳 **Car Booking System:** If user know book a car as if implement Car Booking System.
+- 👤 **User Authentication:** Implement secure login and registration system with Firebase. 
+- 🧠 **Responsive & Animated UI:** Try keeping UI responsive and Animated.
+- 🔒 **Protected Routes:** User added car and booked car show just only accessible logged-in user.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+- **Frontend:** React, React Router, Tailwind CSS, Framer Motion, Daisy ui, React Tooltip, React Icon, React Toastify, SweetAlert2, React Swiper 
+- **Backend API:** Node.js, Express.js 
+- **Authentication:** Firebase 
+- **Database:** MongoDB
+- **HTTP Client:** Axios  
+- **Hosting:** Vercel / Firebase  

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BannerSlider from "../Swiper/BannerSlider";
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 // import { Typewriter } from "react-simple-typewriter";
 
 const Banner = () => {
@@ -39,7 +40,7 @@ const Banner = () => {
             To contribute to positive change and achieve our sustainability
             goals with many extraordinary
           </p>
-          <button className="my_btn_outline">Rent Car</button>
+          <Link to={'/cars'} className="my_btn_outline">Rent Car</Link>
         </motion.div>
       </div>
 

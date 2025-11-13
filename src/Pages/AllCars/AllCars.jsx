@@ -109,13 +109,7 @@ const AllCars = () => {
           {loader ? (
             <Spinner />
           ) : (
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4"
-            >
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
               {allCars.length === 0 ? (
                 <div className="flex col-span-3 items-center justify-center mt-10">
                   <div className="flex flex-col max-w-80 items-center justify-center bg-white p-4 text-center rounded-2xl gap-2.5 shadow">
@@ -123,7 +117,8 @@ const AllCars = () => {
                     <div>
                       <h5 className="text-3xl mb-1">Not found cars</h5>
                       <p className="text-gray-400">
-                        Seller not added this Category cars. Please check another category.{" "}
+                        Seller not added this Category cars. Please check
+                        another category.{" "}
                       </p>
                     </div>
                   </div>
@@ -131,7 +126,7 @@ const AllCars = () => {
               ) : (
                 allCars.map((car) => <CarCard key={car._id} car={car} />)
               )}
-            </motion.div>
+            </div>
           )}
         </div>
       </section>

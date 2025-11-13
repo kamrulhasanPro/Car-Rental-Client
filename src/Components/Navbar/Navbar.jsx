@@ -22,7 +22,7 @@ const Navbar = () => {
     <>
       <MyLink to={"/"}>Home</MyLink>
       <MyLink to={"/cars"}>Cars</MyLink>
-      <MyLink to={"/my-listing"}>My Listing</MyLink>
+      <MyLink to={"/my-listings"}>My Listings</MyLink>
       <MyLink to={"/my-bookings"}>My Bookings</MyLink>
       <MyLink to={"/add-car"}>Add Car</MyLink>
     </>
@@ -83,7 +83,7 @@ const Navbar = () => {
               className={"right-0"}
               height={72}
             >
-              <div className="bg-white p-3 rounded-xl">
+              <div className="bg-white p-3 rounded-xl border border-gray-300">
                 <div className="flex items-center gap-2">
                   <figure className="w-11 h-11 rounded-full overflow-hidden">
                     <img src={user?.photoURL} alt="profile image" />

@@ -2,9 +2,55 @@ import React from "react";
 import MyContainer from "../../Components/MyContainer/MyContainer";
 import MyTitle from "../../Components/Title/MyTitle";
 import useAuth from "../../Hooks/useAuth";
+import { useAxiosSecure } from "../../api/useAxiosSecure";
+import { toast } from "react-toastify";
 
 const AddCar = () => {
   const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+
+  const handleCreate = (e) => {
+    e.preventDefault();
+    const carName = e.target.name.value;
+    const description = e.target.description.value;
+    const image = e.target.image.value;
+    const category = e.target.brand.value;
+    const seats = e.target.seats.value;
+    const fuelType = e.target.fuelType.value;
+    const pricePerDay = e.target.price.value;
+    const location = e.target.location.value;
+    const providerName = user.displayName;
+    const providerEmail = user.email;
+    const randomRating = Math.floor(Math.random() * 5) + 1;
+    console.log(randomRating);
+
+    const newCar = {
+      carName,
+      description,
+      image,
+      category,
+      seats,
+      fuelType,
+      pricePerDay,
+      providerName,
+      providerEmail,
+      location,
+      carStatus: "available",
+      ratings: randomRating,
+      created_at: new Date(),
+    };
+
+    // post in database
+    axiosSecure.post('/cars', newCar)
+    .then(res => {
+        console.log(res);
+        if(res.data.insertedId){
+            toast.success('Successfully post your car.')
+            e.target.reset()
+        }
+    })
+    .catch(err => toast.error(err.code))
+  };
   return (
     <MyContainer className={"mt-16"}>
       {/* title */}
@@ -13,7 +59,10 @@ const AddCar = () => {
       </MyTitle>
 
       {/* add car form */}
-      <form className="bg-white p-7 rounded-2xl lg:max-w-9/12 mx-auto">
+      <form
+        onSubmit={handleCreate}
+        className="bg-white p-7 rounded-2xl lg:max-w-9/12 mx-auto"
+      >
         {/* --------provider information------- */}
         <h5 className="text-2xl font-medium text-primary mb-2">
           Provider Information
@@ -36,11 +85,11 @@ const AddCar = () => {
           {/* provider email */}
           <div className="flex-1">
             <label htmlFor="" className="my_label">
-              Provider Name
+              Provider Email
             </label>
             <input
               type="email"
-              name="providerName"
+              name="providerEmail"
               className="my_input_box"
               value={user.email}
               readOnly
@@ -154,9 +203,7 @@ const AddCar = () => {
         </div>
 
         {/* button */}
-        <div>
-            <button className="my_btn btn-block mt-4">Post The Car</button>
-        </div>
+        <button className="my_btn btn-block mt-4">Post The Car</button>
       </form>
     </MyContainer>
   );

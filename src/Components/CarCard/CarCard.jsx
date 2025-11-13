@@ -10,9 +10,9 @@ const CarCard = ({ car }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40, scale: 0.9 }}
+      initial={{ opacity: 0, y: 40, scale: 0.8 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 1, ease: "linear"}}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true }}
       className="border border-gray-300 rounded-xl overflow-hidden hover:-translate-y-2 hover:shadow-lg transition-all flex flex-col"
     >

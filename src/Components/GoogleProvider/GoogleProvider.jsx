@@ -3,37 +3,44 @@ import useAuth from "../../Hooks/useAuth";
 import { googleProvider } from "../../Firebase/firebase.config";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import { axiosPublic } from "../../api/axiosPublic";
 
-const GoogleProvider = ({children}) => {
-    const {otherLoginUser, setLoader} = useAuth()
-    const navigate = useNavigate()
+const GoogleProvider = ({ children }) => {
+  const { otherLoginUser, setLoader } = useAuth();
+  const navigate = useNavigate();
 
-    // google login
-    const handleGoogle = () => {
-        otherLoginUser(googleProvider)
-        .then((res)=> {
-            const user = res.user;
-            if(user){
-                const newUser = {
-                    email: user.email,
-                    name: user.displayName,
-                    photoURL: user.photoURL,
-                    provider: user.providerData.providerId,
-                }
+  // google login
+  const handleGoogle = () => {
+    otherLoginUser(googleProvider)
+      .then((res) => {
+        const user = res.user;
+        if (user) {
+          const newUser = {
+            email: user.email,
+            name: user.displayName,
+            photoURL: user.photoURL,
+            provider: user.providerData.providerId,
+          };
+          axiosPublic.post("/users", newUser).then((res) => {
+            if (res.data.insertedId) {
+              toast.success("Successfully Login!");
+              navigate("/");
             }
-
-           toast.success("Successfully Login!");
-           navigate("/");
-        })
-        .catch((err) => {
-            toast.error(err.code)
-            setLoader(false)
-        })
-    }
+          });
+        }
+      })
+      .catch((err) => {
+        toast.error(err.code);
+        setLoader(false);
+      });
+  };
   return (
     <>
       {/* Google */}
-      <button onClick={handleGoogle} className="btn btn-block rounded-full bg-white text-black border-[#e5e5e5]">
+      <button
+        onClick={handleGoogle}
+        className="btn btn-block rounded-full bg-white text-black border-[#e5e5e5]"
+      >
         <svg
           aria-label="Google logo"
           width="24"

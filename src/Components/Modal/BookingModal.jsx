@@ -35,10 +35,12 @@ const BookingModal = ({ car, setIsAvailable }) => {
       .post("/booking-cars", newBookingCar)
       .then((res) => {
         console.log(res);
-        e.target.reset();
-        setIsAvailable(false);
-        toast.success("Successfully booking.");
-        document.getElementById("my_modal_5").close();
+        if (res.data.insertedId) {
+          e.target.reset();
+          setIsAvailable(false);
+          toast.success("Successfully booking.");
+          document.getElementById("my_modal_5").close();
+        }
       })
       .catch((err) => toast.error(err.code));
 

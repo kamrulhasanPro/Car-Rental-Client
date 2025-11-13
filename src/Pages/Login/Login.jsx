@@ -24,9 +24,9 @@ const Login = () => {
         navigate("/");
       })
       .catch((err) => {
-        toast.error(err.code)
-        setLoader(false)
-    });
+        toast.error(err.code);
+        setLoader(false);
+      });
   };
   return (
     <MyContainer className="flex justify-between rounded-3xl overflow-hidden mt-10 shadow">
@@ -44,7 +44,7 @@ const Login = () => {
       </div>
 
       {/* Login form */}
-      <div className="flex-1 p-5">
+      <div className="flex-1 p-5 ">
         {/* logo */}
         <div className="flex items-center justify-between gap-2">
           <Logo />
@@ -57,44 +57,47 @@ const Login = () => {
           </Link>
         </div>
 
-        {/* form */}
-        <form onSubmit={handleLogin} className="mt-10">
-          <h4 className="text-3xl font-semibold mb-5">Sign In</h4>
+        {/* login form */}
+        <div className="flex flex-col">
+          {/* form */}
+          <form onSubmit={handleLogin} className="mt-10">
+            <h4 className="text-3xl font-semibold mb-5">Sign In</h4>
 
-          {/* email */}
-          <div>
-            <input
-              type="text"
-              name="email"
-              className="my_input mb-4"
-              placeholder="Email or Username"
-            />
-          </div>
+            {/* email */}
+            <div>
+              <input
+                type="text"
+                name="email"
+                className="my_input mb-4"
+                placeholder="Email or Username"
+              />
+            </div>
 
-          {/* Password */}
-          <div className="mb-3">
-            <input
-              type="password"
-              name="password"
-              className="my_input"
-              placeholder="Password"
-            />
-          </div>
+            {/* Password */}
+            <div className="mb-3">
+              <input
+                type="password"
+                name="password"
+                className="my_input"
+                placeholder="Password"
+              />
+            </div>
 
-          {/* forget */}
-          <p className="text-sm cursor-pointer mb-5 hover:text-secondary text-primary hover:outline-">
-            Forget Password?
-          </p>
+            {/* forget */}
+            <p className="text-sm cursor-pointer mb-5 hover:text-secondary text-primary hover:outline-">
+              Forget Password?
+            </p>
 
-          <button className="my_btn btn-block !rounded-full">
-            {loader && (
-              <span className="loading loading-spinner loading-sm"></span>
-            )}
-            Sign In
-          </button>
-        </form>
-        <p className={"divider"}>OR</p>
-        <GoogleProvider>Login</GoogleProvider>
+            <button className="my_btn btn-block !rounded-full">
+              {loader && (
+                <span className="loading loading-spinner loading-sm"></span>
+              )}
+              Sign In
+            </button>
+          </form>
+          <p className={"divider"}>OR</p>
+          <GoogleProvider>Login</GoogleProvider>
+        </div>
       </div>
     </MyContainer>
   );

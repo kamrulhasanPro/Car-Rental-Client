@@ -48,7 +48,7 @@ const WhyRent = () => {
   ];
 
   return (
-    <MyContainer className="mt-16">
+    <MyContainer>
       {/* title */}
       <MyTitle>
         Why <span className="text-primary border-b-2">Rent</span> With us

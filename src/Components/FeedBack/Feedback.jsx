@@ -1,40 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MyTitle from "../Title/MyTitle";
 import FeedbackCard from "./FeedbackCard";
 import MyContainer from "../MyContainer/MyContainer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
+import { axiosPublic } from "../../api/axiosPublic";
+import { toast } from "react-toastify";
 
 const Feedback = () => {
-  const testimonials = [
-    {
-      name: "John Miller",
-      feedback:
-        "Amazing experience! The car was clean and the pickup process was super smooth. Highly recommended! Amazing experience! The car was clean and the pickup process was super smooth. Highly recommended! ",
-    },
-    {
-      name: "Aisha Rahman",
-      feedback:
-        "Really impressed with the customer service. Very professional and fast booking system.",
-    },
-    {
-      name: "Michael Brown",
-      feedback:
-        "Affordable rates and many car options to choose from. Will rent again!",
-    },
-    {
-      name: "Sophia Ali",
-      feedback: "Quick delivery, very polite staff. Loved the experience!",
-    },
-    {
-      name: "David Lee",
-      feedback:
-        "Good cars and best service. Honest pricing and no hidden charges.",
-    },
-  ];
+  const [testimonials, setTestimonials] = useState([]);
+  useEffect(() => {
+    axiosPublic("/feedback")
+      .then((res) => {
+        console.log(res);
+        setTestimonials(res.data);
+      })
+      .catch((err) => toast.error(err.code));
+  }, []);
+
   return (
-    <MyContainer className="mt-16">
+    <MyContainer>
       {/* title */}
       <MyTitle>
         Customers <span className="text-primary border-b-2">Feedback</span>
@@ -43,12 +29,13 @@ const Feedback = () => {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
         <Swiper
+          key={testimonials.length}
           modules={[Autoplay]}
-          autoplay={{ delay: 2500 }}
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
           speed={1500}
           loop={true}
           spaceBetween={10}

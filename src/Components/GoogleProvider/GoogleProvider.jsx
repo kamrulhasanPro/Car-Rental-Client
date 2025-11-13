@@ -2,12 +2,13 @@ import React, { Children } from "react";
 import useAuth from "../../Hooks/useAuth";
 import { googleProvider } from "../../Firebase/firebase.config";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { axiosPublic } from "../../api/axiosPublic";
 
 const GoogleProvider = ({ children }) => {
   const { otherLoginUser, setLoader } = useAuth();
   const navigate = useNavigate();
+  const {state} = useLocation()
 
   // google login
   const handleGoogle = () => {
@@ -24,7 +25,7 @@ const GoogleProvider = ({ children }) => {
           axiosPublic.post("/users", newUser).then((res) => {
             if (res.data.insertedId) {
               toast.success("Successfully Login!");
-              navigate("/");
+              navigate(state ||"/");
             }
           });
         }

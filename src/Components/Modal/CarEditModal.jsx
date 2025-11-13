@@ -52,7 +52,7 @@ const CarEditModal = ({ car, share }) => {
         if(res.data.modifiedCount){
           e.target.reset();
           const filter = share.myCar.filter(car => car._id !== _id)
-          share.setMyCar([...filter, updatedCar])
+          share.setMyCar([updatedCar, ...filter])
           toast.success("Successfully booking.");
           document.getElementById("my_modal_6").close();
         }

@@ -47,7 +47,7 @@ const MyBookings = () => {
   const share = { booked, setBooked };
 
   return (
-    <MyContainer className={"mt-16"}>
+    <MyContainer>
       <MyTitle>
         My Bookings <span className="text-primary border-b-2">Cars</span>
       </MyTitle>

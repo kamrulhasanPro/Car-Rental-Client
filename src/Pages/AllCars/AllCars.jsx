@@ -32,7 +32,7 @@ const AllCars = () => {
   }, [brand, sort, search]);
 
   return (
-    <MyContainer className={"mt-8 md:mt-16"}>
+    <MyContainer>
       {/* title */}
       <MyTitle>
         All <span className="text-primary border-b-2">Cars</span>

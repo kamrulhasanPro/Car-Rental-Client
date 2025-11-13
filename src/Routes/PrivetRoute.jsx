@@ -1,10 +1,12 @@
 import React from 'react';
 import useAuth from '../Hooks/useAuth';
 import Spinner from '../Components/Spinner/Spinner';
-import { Navigate } from 'react-router';
+import { Navigate, useLocation } from 'react-router';
 
 const PrivetRoute = ({children}) => {
     const {user, loader} = useAuth()
+    const {pathname} = useLocation()
+
     if(loader){
         return <Spinner/>
     }
@@ -12,7 +14,7 @@ const PrivetRoute = ({children}) => {
        return children 
     }
     return (
-        <Navigate to={'/login'}/>
+        <Navigate to={'/login'} state={pathname}/>
     );
 };
 

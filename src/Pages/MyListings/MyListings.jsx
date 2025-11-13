@@ -9,14 +9,15 @@ import { FaRegFaceSmile } from "react-icons/fa6";
 import { Link } from "react-router";
 import ListingsCars from "../../Components/ListingsCard/ListingsCars";
 import CarEditModal from "../../Components/Modal/CarEditModal";
+import { motion } from "framer-motion";
 
 const MyListings = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [myCar, setMyCar] = useState([]);
-  const share = {myCar, setMyCar}
+  const share = { myCar, setMyCar };
   const [loader, setLoader] = useState(false);
-  const [modalData, setModalData] = useState([])
+  const [modalData, setModalData] = useState([]);
 
   useEffect(() => {
     setLoader(true);
@@ -60,28 +61,39 @@ const MyListings = () => {
         ) : myCar.length === 0 ? (
           emptyMyCar
         ) : (
-          <div className=" border-2 overflow-auto border-[#E9E9E9] shadow-xs rounded-lg">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className=" border-2 overflow-auto border-[#E9E9E9] shadow-xs rounded-lg"
+          >
             <table className="w-full shadow-sm rou text-left">
-            <thead>
-              <tr className="bg-amber-100 overflow-hidden">
-                <th className="my_thead">Product</th>
-                <th className="my_thead">Category</th>
-                <th className="my_thead">Price</th>
-                <th className="my_thead">Status</th>
-                <th className="my_thead">Action</th>
-              </tr>
-            </thead>
-            <tbody className="space-y-2">
-              {myCar.map((car) => (
-                <ListingsCars key={car._id} car={car} showModal={() => setModalData(car)} share={share}/>
-              ))}
-            </tbody>
-          </table>
-          </div>
+              <thead>
+                <tr className="bg-amber-100 overflow-hidden">
+                  <th className="my_thead">Product</th>
+                  <th className="my_thead">Category</th>
+                  <th className="my_thead">Price</th>
+                  <th className="my_thead">Status</th>
+                  <th className="my_thead">Action</th>
+                </tr>
+              </thead>
+              <tbody className="space-y-2">
+                {myCar.map((car) => (
+                  <ListingsCars
+                    key={car._id}
+                    car={car}
+                    showModal={() => setModalData(car)}
+                    share={share}
+                  />
+                ))}
+              </tbody>
+            </table>
+          </motion.div>
         )}
       </div>
 
-      <CarEditModal share={share} car={modalData}/>
+      <CarEditModal share={share} car={modalData} />
     </MyContainer>
   );
 };

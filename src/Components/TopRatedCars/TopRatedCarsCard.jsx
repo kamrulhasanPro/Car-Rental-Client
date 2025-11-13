@@ -22,11 +22,11 @@ const TopRatedCarsCard = ({ car }) => {
   return (
     <>
       {/* top rated cars */}
-      <MyContainer className="flex flex-col md:flex-row items-center justify-between gap-8">
+      <MyContainer className="flex flex-col md:flex-row md:items-center  gap-8">
         {/* image */}
         <div className="flex-1 flex justify-end">
-          <figure className="">
-            <img src={image} alt="" />
+          <figure className="h-90 w-full overflow-hidden rounded-xl">
+            <img src={image} alt="" className="w-full h-full object-cover object-center "/>
           </figure>
         </div>
 

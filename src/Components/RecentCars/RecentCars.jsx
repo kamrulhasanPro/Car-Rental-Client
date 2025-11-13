@@ -23,7 +23,7 @@ const RecentCars = () => {
   }, []);
 
   return (
-    <MyContainer className={"mt-16"}>
+    <MyContainer>
 
       {/* title */}
       <MyTitle>

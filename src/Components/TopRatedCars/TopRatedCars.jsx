@@ -59,14 +59,14 @@ const TopRatedCars = () => {
             slidesPerView={1}
             pagination={{clickable: true, el: '.custom-pagination'}}
           >
-            {topCar.map((car) => (
-              <SwiperSlide key={car._id}>
-                <TopRatedCarsCard car={car} />
+            {topCar.map((car, index) => (
+              <SwiperSlide key={index}>
+                <TopRatedCarsCard key={index} car={car} />
               </SwiperSlide>
             ))}
 
             {/* custom pagination */}
-            <div className="custom-pagination flex items-center justify-center gap-1.5 mt-1 cursor-pointer"></div>
+            <div className="custom-pagination flex items-center justify-center gap-1.5 mt-2.5 cursor-pointer"></div>
           </Swiper>
         )}
       </motion.div>

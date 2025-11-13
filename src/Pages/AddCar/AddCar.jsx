@@ -53,7 +53,7 @@ const AddCar = () => {
   };
   
   return (
-    <MyContainer className={"mt-16"}>
+    <MyContainer>
       {/* title */}
       <MyTitle>
         Add <span className="text-primary border-b-2">New Car</span>

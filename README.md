@@ -1,6 +1,6 @@
 # **App Name:** Car Rental
 
-**Live Client Site URL:** [https://car-rental-9358d.web.app/](https://car-rental-9358d.web.app)
+**Live Client Site URL:** [https://car-rental-9358d.web.app](https://car-rental-9358d.web.app)
 
 **Live Server Site URL:** [https://car-rental-server-pi-three.vercel.app](https://car-rental-server-pi-three.vercel.app)
 

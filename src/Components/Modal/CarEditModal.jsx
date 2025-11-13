@@ -44,13 +44,14 @@ const CarEditModal = ({ car, share }) => {
       location,
       carStatus
     };
-    
+
     axiosSecure
       .patch(`/cars/${_id}`, updatedCar)
       .then((res) => {
         if(res.data.modifiedCount){
           e.target.reset();
           const filter = share.myCar.filter(car => car._id !== _id)
+          updatedCar._id = _id
           share.setMyCar([updatedCar, ...filter])
           toast.success("Successfully booking.");
           document.getElementById("my_modal_6").close();

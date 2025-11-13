@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 const RecentCars = () => {
   const [recentCars, setRecentCars] = useState([]);
   const [loader, setLoader] = useState(false);
+
   useEffect(() => {
     setLoader(true);
     axiosPublic("/recent-cars")
@@ -24,7 +25,6 @@ const RecentCars = () => {
 
   return (
     <MyContainer>
-
       {/* title */}
       <MyTitle>
         Newest <span className="text-primary border-b-2">Cars</span>

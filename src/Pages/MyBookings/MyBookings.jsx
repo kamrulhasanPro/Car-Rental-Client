@@ -20,7 +20,6 @@ const MyBookings = () => {
     axiosSecure
       .get(`booking-cars?email=${user.email}`)
       .then((res) => {
-        console.log(res);
         setBooked(res.data);
         setLoader(false);
       })

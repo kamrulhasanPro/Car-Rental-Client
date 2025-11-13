@@ -9,6 +9,7 @@ import { IoSearchSharp } from "react-icons/io5";
 import { FaFilter, FaRegFaceSmile } from "react-icons/fa6";
 import { FaSortAlphaUp } from "react-icons/fa";
 import { Link } from "react-router";
+import { toast } from "react-toastify";
 
 const AllCars = () => {
   const [allCars, setAllCars] = useState([]);
@@ -16,18 +17,16 @@ const AllCars = () => {
   const [brand, setBrand] = useState("All");
   const [sort, setSort] = useState("Normal");
   const [search, setSearch] = useState("");
-  console.log(search);
 
   useEffect(() => {
     setLoader(true);
     axiosPublic(`/cars?brand=${brand}&sort=${sort}&search=${search}`)
       .then((res) => {
-        console.log(res);
         setAllCars(res.data);
         setLoader(false);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err.code);
       });
   }, [brand, sort, search]);
 

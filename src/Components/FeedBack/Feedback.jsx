@@ -13,7 +13,6 @@ const Feedback = () => {
   useEffect(() => {
     axiosPublic("/feedback")
       .then((res) => {
-        console.log(res);
         setTestimonials(res.data);
       })
       .catch((err) => toast.error(err.code));

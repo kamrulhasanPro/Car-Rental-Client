@@ -44,11 +44,10 @@ const CarEditModal = ({ car, share }) => {
       location,
       carStatus
     };
-    console.log(updatedCar);
+    
     axiosSecure
       .patch(`/cars/${_id}`, updatedCar)
       .then((res) => {
-        console.log(res);
         if(res.data.modifiedCount){
           e.target.reset();
           const filter = share.myCar.filter(car => car._id !== _id)

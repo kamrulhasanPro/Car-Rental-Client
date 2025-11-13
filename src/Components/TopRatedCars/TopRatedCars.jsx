@@ -19,7 +19,6 @@ const TopRatedCars = () => {
     setLoading(true);
     axiosPublic("top-cars")
       .then((res) => {
-        console.log(res);
         setTopCar(res.data);
         setLoading(false);
       })

@@ -5,6 +5,7 @@ import { axiosPublic } from "../../api/axiosPublic";
 import CarCard from "../CarCard/CarCard";
 import { motion } from "framer-motion";
 import Spinner from "../Spinner/Spinner";
+import { toast } from "react-toastify";
 
 const RecentCars = () => {
   const [recentCars, setRecentCars] = useState([]);
@@ -13,12 +14,11 @@ const RecentCars = () => {
     setLoader(true);
     axiosPublic("/recent-cars")
       .then((res) => {
-        console.log(res);
         setRecentCars(res.data);
         setLoader(false);
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err);
       });
   }, []);
 

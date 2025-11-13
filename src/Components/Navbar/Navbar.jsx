@@ -13,7 +13,6 @@ import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, signOutUser } = useAuth();
-  console.log(user);
   const handleLogout = () => {
     signOutUser()
     .then(() => toast.success('Logout Success'))

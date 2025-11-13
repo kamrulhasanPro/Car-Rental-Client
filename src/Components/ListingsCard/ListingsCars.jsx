@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 const ListingsCars = ({ car, share, showModal }) => {
   const axiosSecure = useAxiosSecure();
   const { _id, carName, image, pricePerDay, category, carStatus } = car;
-  console.log(car);
 
   const handleRemove = () => {
     // confirmation

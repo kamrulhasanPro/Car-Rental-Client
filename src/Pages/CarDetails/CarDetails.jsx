@@ -24,7 +24,6 @@ const CarDetails = () => {
     setLoader(true);
     axiosSecure(`/cars/${id}`)
       .then((res) => {
-        console.log(res);
         setCar(res.data);
         setLoader(false);
       })
@@ -88,7 +87,7 @@ const CarDetails = () => {
           </button>
 
           <figure className=" bg-primary/10 rounded-xl h-80">
-            <img className="w-full h-full rounded-xl object-cover" src={image} alt="" />
+            <img className="w-full h-full rounded-xl object-cover object-center" src={image} alt="" />
           </figure>
 
           <div className="hidden md:block">

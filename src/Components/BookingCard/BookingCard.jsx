@@ -22,7 +22,6 @@ const BookingCard = ({ car, share }) => {
     clientName,
     description,
   } = car;
-  console.log(productId);
   const shortDescription =
     description.length > 200 ? description.slice(0, 200) : description;
 
@@ -40,10 +39,8 @@ const BookingCard = ({ car, share }) => {
         axiosSecure
           .delete(`/booking-cars/${_id}`)
           .then((res) => {
-            console.log(res);
             if (res.data.deletedCount) {
               const remaining = share.booked.filter((item) => item._id !== _id);
-              console.log(remaining);
               share.setBooked(remaining);
               Swal.fire({
                 title: "Removed!",
@@ -56,7 +53,7 @@ const BookingCard = ({ car, share }) => {
 
         axiosSecure
           .patch(`/cars/${productId}`, { carStatus: "available" })
-          .then((res) => console.log(res))
+          .then()
           .catch((err) => toast.error(err.code));
       }
     });

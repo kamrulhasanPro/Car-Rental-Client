@@ -22,7 +22,6 @@ const AddCar = () => {
     const providerName = user.displayName;
     const providerEmail = user.email;
     const randomRating = Math.floor(Math.random() * 5) + 1;
-    console.log(randomRating);
 
     const newCar = {
       carName,
@@ -43,7 +42,6 @@ const AddCar = () => {
     // post in database
     axiosSecure.post('/cars', newCar)
     .then(res => {
-        console.log(res);
         if(res.data.insertedId){
             toast.success('Successfully post your car.')
             e.target.reset()

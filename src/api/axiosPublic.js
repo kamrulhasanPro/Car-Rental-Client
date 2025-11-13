@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const axiosPublic = axios.create({
-    baseURL: 'http://localhost:3000'
-})
+  baseURL: "https://car-rental-server-pi-three.vercel.app",
+});

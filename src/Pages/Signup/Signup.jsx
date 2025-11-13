@@ -21,7 +21,7 @@ const Signup = () => {
     const password = e.target.password.value;
     const checkbox = e.target.checkbox.checked;
     const newUser = { name, email, photoURL: profile, password };
-    console.log(name, email, profile, password, checkbox);
+    
 
     // password validation
     const validation = /([A-Z])([a-z])/;
@@ -34,7 +34,7 @@ const Signup = () => {
       createUser(email, password)
         .then((res) => {
           const user = res.user;
-          console.log(user);
+          
           if (user) {
             // update name and photoURL
             updateProfile(user, {
@@ -46,7 +46,7 @@ const Signup = () => {
                 // user data and in database
                 axiosPublic
                   .post("/users", newUser)
-                  .then((res) => console.log(res));
+                  .then();
               // signOut & reset form
               signOutUser().then();
               e.target.reset();

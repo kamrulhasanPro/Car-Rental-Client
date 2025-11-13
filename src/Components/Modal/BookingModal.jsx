@@ -30,11 +30,10 @@ const BookingModal = ({ car, setIsAvailable }) => {
       seats,
       bookingTime: new Date(),
     };
-    console.log(newBookingCar);
+
     axiosSecure
       .post("/booking-cars", newBookingCar)
       .then((res) => {
-        console.log(res);
         if (res.data.insertedId) {
           e.target.reset();
           setIsAvailable(false);
@@ -46,8 +45,8 @@ const BookingModal = ({ car, setIsAvailable }) => {
 
     axiosSecure
       .patch(`/cars/${_id}`, { carStatus: "booked" })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then()
+      .catch((err) => toast.error(err.code));
   };
   return (
     <div>

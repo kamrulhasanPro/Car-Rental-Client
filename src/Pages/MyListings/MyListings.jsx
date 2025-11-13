@@ -23,7 +23,6 @@ const MyListings = () => {
     setLoader(true);
     axiosSecure(`/cars?email=${user.email}`)
       .then((res) => {
-        console.log(res);
         setMyCar(res.data);
         setLoader(false);
       })

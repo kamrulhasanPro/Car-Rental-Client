@@ -26,3 +26,82 @@ User can search by car name. If user know brand filter and Sorting with High to 
 - **Database:** MongoDB
 - **HTTP Client:** Axios  
 - **Hosting:** Vercel / Firebase  
+
+---
+
+## 📦 Dependencies
+
+### Client
+
+```
+react
+react-dom
+react-router-dom
+axios
+tailwindcss
+daisyui
+framer-motion
+react-tooltip
+react-icons
+react-toastify
+sweetalert2
+swiper
+```
+
+### Server
+
+```
+express
+cors
+dotenv
+mongodb
+nodemon
+```
+
+---
+
+## 🧑‍💻 Run Project Locally
+
+### 1️⃣ Clone the Repository
+
+```
+git clone https://github.com/kamrulhasanPro/Car-Rental-Client.git
+```
+
+### 2️⃣ Client Setup
+
+```
+cd client
+npm install
+npm run dev
+```
+Create a `.env` file in the server folder:
+and added firebase config key
+
+
+
+### 3️⃣ Server Setup
+
+```
+cd ../server
+npm install
+```
+
+Create a `.env` file in the server folder:
+
+```
+MONGO_URI=your_mongo_connection_string
+```
+
+Start the server:
+
+```
+npm start
+```
+
+---
+
+## 🎉 Thank You
+
+Explore the project and feel free to contribute!
+

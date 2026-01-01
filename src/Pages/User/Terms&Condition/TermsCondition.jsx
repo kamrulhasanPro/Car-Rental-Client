@@ -1,6 +1,6 @@
 import React from "react";
-import MyTitle from "../../Components/Title/MyTitle";
-import MyContainer from "../../Components/MyContainer/MyContainer";
+import MyTitle from "../../../Components/Title/MyTitle";
+import MyContainer from "../../../Components/MyContainer/MyContainer";
 
 const TermsCondition = () => {
   return (
@@ -69,7 +69,9 @@ const TermsCondition = () => {
       <div className="divider"></div>
       <h5 className="text-2xl font-medium">4. Contact Information</h5>
       <p>For questions, support, or complaints, please contact us:</p>
-      <p>📧 <a href="mailto:kamrul116522@gmail.com">kamrul116522@gmail.com</a></p>
+      <p>
+        📧 <a href="mailto:kamrul116522@gmail.com">kamrul116522@gmail.com</a>
+      </p>
     </MyContainer>
   );
 };

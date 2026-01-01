@@ -1,8 +1,8 @@
 import React from "react";
-import MyContainer from "../../Components/MyContainer/MyContainer";
-import MyTitle from "../../Components/Title/MyTitle";
-import useAuth from "../../Hooks/useAuth";
-import { useAxiosSecure } from "../../api/useAxiosSecure";
+import MyContainer from "../../../Components/MyContainer/MyContainer";
+import MyTitle from "../../../Components/Title/MyTitle";
+import useAuth from "../../../Hooks/useAuth";
+import { useAxiosSecure } from "../../../api/useAxiosSecure";
 import { toast } from "react-toastify";
 
 const AddCar = () => {
@@ -40,16 +40,17 @@ const AddCar = () => {
     };
 
     // post in database
-    axiosSecure.post('/cars', newCar)
-    .then(res => {
-        if(res.data.insertedId){
-            toast.success('Successfully post your car.')
-            e.target.reset()
+    axiosSecure
+      .post("/cars", newCar)
+      .then((res) => {
+        if (res.data.insertedId) {
+          toast.success("Successfully post your car.");
+          e.target.reset();
         }
-    })
-    .catch(err => toast.error(err.code))
+      })
+      .catch((err) => toast.error(err.code));
   };
-  
+
   return (
     <MyContainer>
       {/* title */}

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useAxiosSecure } from "../../api/useAxiosSecure";
-import useAuth from "../../Hooks/useAuth";
+import { useAxiosSecure } from "../../../api/useAxiosSecure";
+import useAuth from "../../../Hooks/useAuth";
 import { toast } from "react-toastify";
-import Spinner from "../../Components/Spinner/Spinner";
+import Spinner from "../../../Components/Spinner/Spinner";
 import { FaRegFaceSmile } from "react-icons/fa6";
-import MyContainer from "../../Components/MyContainer/MyContainer";
+import MyContainer from "../../../Components/MyContainer/MyContainer";
 import { Link } from "react-router";
-import BookingCard from "../../Components/BookingCard/BookingCard";
-import MyTitle from "../../Components/Title/MyTitle";
+import BookingCard from "../../../Components/BookingCard/BookingCard";
+import MyTitle from "../../../Components/Title/MyTitle";
 
 const MyBookings = () => {
   const { user } = useAuth();

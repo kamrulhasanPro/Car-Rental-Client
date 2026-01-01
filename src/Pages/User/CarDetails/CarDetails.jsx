@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
-import { useAxiosSecure } from "../../api/useAxiosSecure";
+import { useAxiosSecure } from "../../../api/useAxiosSecure";
 import { toast } from "react-toastify";
-import Spinner from "../../Components/Spinner/Spinner";
-import MyContainer from "../../Components/MyContainer/MyContainer";
+import Spinner from "../../../Components/Spinner/Spinner";
+import MyContainer from "../../../Components/MyContainer/MyContainer";
 import { BiSolidCategory } from "react-icons/bi";
 import { GrStatusGoodSmall } from "react-icons/gr";
 import { MdDateRange, MdOutlineAirlineSeatReclineNormal } from "react-icons/md";
 import { FaArrowLeft, FaStar } from "react-icons/fa";
 import { FcRating } from "react-icons/fc";
-import BookingModal from "../../Components/Modal/BookingModal";
-import SellerInfo from "../../Components/CarDetails/SellerInfo";
+import BookingModal from "../../../Components/Modal/BookingModal";
+import SellerInfo from "../../../Components/CarDetails/SellerInfo";
 import { FaRegFaceSmile } from "react-icons/fa6";
-import useAuth from "../../Hooks/useAuth";
+import useAuth from "../../../Hooks/useAuth";
 
 const CarDetails = () => {
   const axiosSecure = useAxiosSecure();

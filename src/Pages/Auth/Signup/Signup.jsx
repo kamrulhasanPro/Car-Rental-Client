@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, useNavigate } from "react-router";
-import Logo from "../../Components/Logo/Logo";
-import MyContainer from "../../Components/MyContainer/MyContainer";
-import GoogleProvider from "../../Components/GoogleProvider/GoogleProvider";
+import Logo from "../../../Components/Logo/Logo";
+import MyContainer from "../../../Components/MyContainer/MyContainer";
+import GoogleProvider from "../../../Components/GoogleProvider/GoogleProvider";
 import { IoPersonCircleOutline } from "react-icons/io5";
-import useAuth from "../../Hooks/useAuth";
+import useAuth from "../../../Hooks/useAuth";
 import { toast } from "react-toastify";
 import { updateProfile } from "firebase/auth";
-import { axiosPublic } from "../../api/axiosPublic";
+import { axiosPublic } from "../../../api/axiosPublic";
 
 const Signup = () => {
   const { createUser, signOutUser, loader, setLoader } = useAuth();
@@ -21,7 +21,6 @@ const Signup = () => {
     const password = e.target.password.value;
     const checkbox = e.target.checkbox.checked;
     const newUser = { name, email, photoURL: profile, password };
-    
 
     // password validation
     const validation = /([A-Z])([a-z])/;
@@ -34,19 +33,17 @@ const Signup = () => {
       createUser(email, password)
         .then((res) => {
           const user = res.user;
-          
+
           if (user) {
             // update name and photoURL
             updateProfile(user, {
               displayName: name,
               photoURL: profile,
             }).then(() => {
-                // add provider
-                (newUser.provider = user.providerData.providerId),
+              // add provider
+              (newUser.provider = user.providerData.providerId),
                 // user data and in database
-                axiosPublic
-                  .post("/users", newUser)
-                  .then();
+                axiosPublic.post("/users", newUser).then();
               // signOut & reset form
               signOutUser().then();
               e.target.reset();

@@ -1,17 +1,19 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../Layouts/MainLayout";
-import Home from "../Pages/Home/Home";
-import AllCars from "../Pages/AllCars/AllCars";
-import Login from "../Pages/Login/Login";
-import Signup from "../Pages/Signup/Signup";
+import Home from "../Pages/User/Home/Home";
+import AllCars from "../Pages/User/AllCars/AllCars";
+import Login from "../Pages/Auth/Login/Login";
+import Signup from "../Pages/Auth/Signup/Signup";
 import AuthLayout from "../Layouts/AuthLayout";
-import CarDetails from "../Pages/CarDetails/CarDetails";
+import CarDetails from "../Pages/User/CarDetails/CarDetails";
 import PrivetRoute from "./PrivetRoute";
-import MyBookings from "../Pages/MyBookings/MyBookings";
-import AddCar from "../Pages/AddCar/AddCar";
-import MyListings from "../Pages/MyListings/MyListings";
+import MyBookings from "../Pages/Dashboard/MyBookings/MyBookings";
+import AddCar from "../Pages/Dashboard/AddCar/AddCar";
+import MyListings from "../Pages/Dashboard/MyListings/MyListings";
 import NotFoundPageLayout from "../Layouts/NotFoundPageLayout";
-import TermsCondition from "../Pages/Terms&Condition/TermsCondition";
+import TermsCondition from "../Pages/User/Terms&Condition/TermsCondition";
+import About from "../Pages/User/About/About";
+import Contact from "../Pages/User/Contact/Contact";
 
 export const MainRoute = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ export const MainRoute = createBrowserRouter([
       {
         path: "/cars",
         Component: AllCars,
+      },
+      {
+        path: '/about',
+        Component: About
+      },
+      {
+        path: '/contact',
+        Component: Contact
       },
       {
         path: "/cars/:id",

@@ -1,35 +1,29 @@
 import React from "react";
 import MyLink from "./MyLink";
-import { Link, NavLink } from "react-router";
+import { Link } from "react-router";
 import MyContainer from "../MyContainer/MyContainer";
 import useAuth from "../../Hooks/useAuth";
-import CustomDropdown from "../CustomDropdown/CustomDropdown";
-import { GoPerson } from "react-icons/go";
-import { BiEdit } from "react-icons/bi";
-import { MdOutlineDarkMode, MdOutlineSupportAgent } from "react-icons/md";
-import { toast } from "react-toastify";
-
-
+import Profile from "./Profile";
 
 const Navbar = () => {
-  const { user, signOutUser } = useAuth();
-  const handleLogout = () => {
-    signOutUser()
-    .then(() => toast.success('Logout Success'))
-  }
+  const { user } = useAuth();
   const navList = (
     <>
       <MyLink to={"/"}>Home</MyLink>
       <MyLink to={"/cars"}>Cars</MyLink>
-      <MyLink to={"/my-listings"}>My Listings</MyLink>
-      <MyLink to={"/my-bookings"}>My Bookings</MyLink>
-      <MyLink to={"/add-car"}>Add Car</MyLink>
+      <MyLink to={"/about"}>About</MyLink>
+      <MyLink to={"/contact"}>Contact</MyLink>
+      {/* {user && (
+        <>
+          <MyLink to={"/my-listings"}>My Listings</MyLink>
+          <MyLink to={"/my-bookings"}>My Bookings</MyLink>
+          <MyLink to={"/add-car"}>Add Car</MyLink>
+        </>
+      )} */}
     </>
   );
   return (
-    <div
-      className="bg-base-100/90 backdrop-blur-md shadow-sm z-50 sticky top-0 w-full"
-    >
+    <div className="bg-base-100/90 backdrop-blur-md shadow-sm z-50 sticky top-0 w-full">
       <MyContainer className={"navbar"}>
         <div className="navbar-start gap-2">
           <div className="dropdown">
@@ -68,42 +62,12 @@ const Navbar = () => {
             </p>
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu-horizontal gap-6 px-1">{navList}</ul>
-        </div>
+
+        {/* custom dropdown for profile */}
         <div className="navbar-end">
+          <ul className="menu-horizontal gap-6 px-1 mr-4">{navList}</ul>
           {user ? (
-            <CustomDropdown
-              trigger={
-                <figure className="w-11 h-11 rounded-full overflow-hidden cursor-pointer">
-                  <img src={user?.photoURL} alt="profile image" />
-                </figure>
-              }
-              className={"right-0"}
-              height={72}
-            >
-              <div className="bg-white p-3 rounded-xl border border-gray-300">
-                <div className="flex items-center gap-2">
-                  <figure className="w-11 h-11 rounded-full overflow-hidden">
-                    <img src={user?.photoURL} alt="profile image" />
-                  </figure>
-                  <div>
-                    <h3 className="font-semibold">{user?.displayName}</h3>
-                    <p className="text-sm text-gray-400">{user?.email}</p>
-                  </div>
-                </div>
-
-                <div className="divider m-0"/>
-                <div className="text-natural ">
-                  <Link className="link_style"><GoPerson size={20}/> Profile</Link>
-                  <Link className="link_style"><BiEdit size={20}/>Edit Profile</Link>
-                  <Link className="link_style"><MdOutlineSupportAgent size={20} />Help Center</Link>
-                  <Link className="link_style"><MdOutlineDarkMode size={20}/>Dark Mode</Link>
-
-                  <button onClick={handleLogout} className="btn bg-red-400 hover:bg-red-600 btn-block text-white mt-4">Logout</button>
-                </div>
-              </div>
-            </CustomDropdown>
+            <Profile />
           ) : (
             <Link to={"/login"} className="my_btn">
               Login

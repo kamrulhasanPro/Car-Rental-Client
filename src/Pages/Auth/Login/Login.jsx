@@ -1,16 +1,16 @@
 import React from "react";
-import MyContainer from "../../Components/MyContainer/MyContainer";
-import Logo from "../../Components/Logo/Logo";
+import MyContainer from "../../../Components/MyContainer/MyContainer";
+import Logo from "../../../Components/Logo/Logo";
 import { IoPersonCircleOutline } from "react-icons/io5";
-import GoogleProvider from "../../Components/GoogleProvider/GoogleProvider";
+import GoogleProvider from "../../../Components/GoogleProvider/GoogleProvider";
 import { Link, useLocation, useNavigate } from "react-router";
-import useAuth from "../../Hooks/useAuth";
+import useAuth from "../../../Hooks/useAuth";
 import { toast } from "react-toastify";
 
 const Login = () => {
   const { loginUser, loader, setLoader } = useAuth();
   const navigate = useNavigate();
-  const {state} = useLocation()
+  const { state } = useLocation();
 
   const handleLogin = (e) => {
     e.preventDefault();

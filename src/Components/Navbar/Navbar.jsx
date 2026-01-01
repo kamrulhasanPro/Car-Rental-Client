@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import MyContainer from "../MyContainer/MyContainer";
 import useAuth from "../../Hooks/useAuth";
 import Profile from "./Profile";
+import { RiMenu2Fill } from "react-icons/ri";
 
 const Navbar = () => {
   const { user } = useAuth();
@@ -26,33 +27,39 @@ const Navbar = () => {
     <div className="bg-base-100/90 backdrop-blur-md shadow-sm z-50 sticky top-0 w-full">
       <MyContainer className={"navbar"}>
         <div className="navbar-start gap-2">
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {" "}
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
-              </svg>
-            </div>
-            <ul
-              tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
-            >
-              {navList}
-            </ul>
 
-            {/* logo */}
+          {/* mobile sidebar */}
+          <div className="dropdown">
+            <div className="drawer md:hidden">
+              <input
+                id="my-drawer-1"
+                type="checkbox"
+                className="drawer-toggle"
+              />
+              <div className="drawer-content">
+                {/* Page content here */}
+                <label
+                  htmlFor="my-drawer-1"
+                  className="flex items-center justify-center px-2 cursor-pointer py-2 text-lg"
+                >
+                  <RiMenu2Fill />
+                </label>
+              </div>
+              <div className="drawer-side">
+                <label
+                  htmlFor="my-drawer-1"
+                  aria-label="close sidebar"
+                  className="drawer-overlay"
+                ></label>
+                <ul className="menu bg-base-200 min-h-full w-80 p-4">
+                  {/* Sidebar content here */}
+                  {navList}
+                </ul>
+              </div>
+            </div>
           </div>
+
+          {/* logo */}
           <Link to={"/"} className="flex items-end justify-center gap-2">
             <figure className="w-10 h-10 overflow-hidden">
               <img src="./Logo.png" alt="" />
@@ -65,7 +72,9 @@ const Navbar = () => {
 
         {/* custom dropdown for profile */}
         <div className="navbar-end">
-          <ul className="menu-horizontal gap-6 px-1 mr-4">{navList}</ul>
+          <ul className="menu-horizontal gap-6 px-1 mr-4 hidden md:flex">
+            {navList}
+          </ul>
           {user ? (
             <Profile />
           ) : (

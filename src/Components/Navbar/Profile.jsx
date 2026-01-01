@@ -9,6 +9,7 @@ import {
   MdOutlineSupportAgent,
 } from "react-icons/md";
 import { Link } from "react-router";
+import ThemeToggle from "../Theme/ThemeToggle";
 
 const Profile = () => {
   const { user, signOutUser } = useAuth();
@@ -56,10 +57,9 @@ const Profile = () => {
           </Link>
 
           {/* toggle theme */}
-          <Link className="link_style">
-            <MdOutlineDarkMode size={20} />
-            Dark Mode
-          </Link>
+          <div className="link_style">
+            <ThemeToggle />
+          </div>
 
           <button
             onClick={handleLogout}

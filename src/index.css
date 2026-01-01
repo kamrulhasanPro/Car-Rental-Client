@@ -8,8 +8,35 @@
   default: true;
   --color-primary: #f57c00;
   --color-secondary: #ffa000;
-  --color-neutral: #07000B;
+  --color-neutral: #07000b;
   --color-base-100: #f5f5f5;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+
+  /* Brand colors (same vibe, darker context) */
+  --color-primary: #ff9800; /* warm orange, readable on dark */
+  --color-primary-content: #1a1a1a;
+
+  --color-secondary: #ffb300; /* slightly brighter accent */
+  --color-secondary-content: #1a1a1a;
+
+  /* Neutrals */
+  --color-neutral: #0d0d0d;          /* soft gray text */
+  --color-neutral-content: #0f172a;
+
+  /* Base surfaces */
+  --color-base-100: #0f172a; /* main background */
+  --color-base-200: #020617; /* cards / sections */
+  --color-base-300: #1e293b; /* borders / subtle surfaces */
+
+  /* Status colors (optional but recommended) */
+  --color-success: #22c55e;
+  --color-warning: #facc15;
+  --color-error: #ef4444;
+  --color-info: #38bdf8;
 }
 
 /* font all add  */
@@ -18,41 +45,41 @@
 }
 
 /* my bg color */
-.my_bg{
-  @apply bg-linear-to-r from-primary to-secondary
+.my_bg {
+  @apply bg-linear-to-r from-primary to-secondary;
 }
 
 /* my button */
 .my_btn {
-  @apply py-2 px-6 rounded-md text-white bg-gradient-to-r from-primary to-secondary hover:scale-105 hover:brightness-110 duration-300 transition-all cursor-pointer
+  @apply py-2 px-6 rounded-md text-white bg-gradient-to-r from-primary to-secondary hover:scale-105 hover:brightness-110 duration-300 transition-all cursor-pointer;
 }
 
 .my_btn_outline {
-  @apply py-2 px-6 rounded-md btn btn-outline hover:bg-primary border-primary hover:text-white border-2
+  @apply py-2 px-6 rounded-md btn btn-outline hover:bg-primary border-primary hover:text-white border-2;
 }
 
-.my_input{
-  @apply py-1.5 px-2 w-full outline outline-gray-200 rounded-full  outline-offset-2 focus:outline-primary
+.my_input {
+  @apply py-1.5 px-2 w-full outline outline-gray-200 rounded-full  outline-offset-2 focus:outline-primary;
 }
 
-.my_input_box{
-  @apply py-1.5 px-2 w-full outline outline-gray-200 rounded-md  outline-offset-2 focus:outline-primary
+.my_input_box {
+  @apply py-1.5 px-2 w-full outline outline-gray-200 rounded-md  outline-offset-2 focus:outline-primary;
 }
 
-.my_label{
-  @apply label mb-2 text-gray-500
+.my_label {
+  @apply label mb-2 text-gray-500;
 }
 
-.my_thead{
-  @apply text-lg font-medium p-3 text-neutral text-nowrap pr-2
+.my_thead {
+  @apply text-lg font-medium p-3 text-neutral text-nowrap pr-2;
 }
 
-.my_tData{
-  @apply p-4 text-[1rem] font-medium text-secondary text-nowrap
+.my_tData {
+  @apply p-4 text-[1rem] font-medium text-secondary text-nowrap;
 }
 
-.link_style{
-  @apply flex items-center gap-2 border-b-gray-200 border-b py-1.5
+.link_style {
+  @apply flex items-center gap-2 border-b-gray-200 border-b py-1.5;
 }
 
 .custom-pagination .swiper-pagination-bullet-active {
@@ -61,6 +88,6 @@
   transition: all;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }

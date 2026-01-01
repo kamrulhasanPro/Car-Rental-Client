@@ -12,9 +12,11 @@ import { FcRating } from "react-icons/fc";
 import BookingModal from "../../Components/Modal/BookingModal";
 import SellerInfo from "../../Components/CarDetails/SellerInfo";
 import { FaRegFaceSmile } from "react-icons/fa6";
+import useAuth from "../../Hooks/useAuth";
 
 const CarDetails = () => {
   const axiosSecure = useAxiosSecure();
+  const { user, loader: authLoading } = useAuth();
   const { id } = useParams();
   const [car, setCar] = useState([]);
   const [loader, setLoader] = useState(false);
@@ -50,7 +52,17 @@ const CarDetails = () => {
     setIsAvailable(carStatus == "available");
   }, [carStatus]);
 
-  if (loader) {
+  const handleBookBTN = () => {
+    if (!isAvailable) {
+      return toast.error("Already Booked.");
+    }
+    if (!user) {
+      return navigate("/login", { state: `/cars/${id}` });
+    }
+    document.getElementById("my_modal_5").showModal();
+  };
+
+  if (loader || authLoading) {
     return <Spinner></Spinner>;
   }
 
@@ -87,7 +99,11 @@ const CarDetails = () => {
           </button>
 
           <figure className=" bg-primary/10 rounded-xl h-80">
-            <img className="w-full h-full rounded-xl object-cover object-center" src={image} alt="" />
+            <img
+              className="w-full h-full rounded-xl object-cover object-center"
+              src={image}
+              alt=""
+            />
           </figure>
 
           <div className="hidden md:block">
@@ -135,7 +151,7 @@ const CarDetails = () => {
               :{" "}
               <button
                 className={`py-.5 px-2 text-white ${
-                  isAvailable  ? "bg-success" : "bg-red-500"
+                  isAvailable ? "bg-success" : "bg-red-500"
                 } rounded-full`}
               >
                 {isAvailable ? "available" : "booked"}
@@ -180,12 +196,7 @@ const CarDetails = () => {
           </div>
 
           <button
-            onClick={() => {
-              if (!isAvailable) {
-                return toast.error("Already Booked.");
-              }
-              document.getElementById("my_modal_5").showModal();
-            }}
+            onClick={handleBookBTN}
             className={`my_btn btn-block ${
               isAvailable || "!cursor-not-allowed"
             }`}

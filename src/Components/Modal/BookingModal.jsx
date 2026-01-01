@@ -11,7 +11,7 @@ const BookingModal = ({ car, setIsAvailable }) => {
 
   const handleBooked = (e) => {
     e.preventDefault();
-    const clientName = user.displayName;
+    const clientName = user?.displayName;
     const clientEmail = user.email;
     const clientContact = e.target.contact.value;
     const clientAddress = e.target.address.value;
@@ -61,7 +61,7 @@ const BookingModal = ({ car, setIsAvailable }) => {
                 required
                 type="text"
                 id="name"
-                value={user.displayName}
+                value={user?.displayName}
                 readOnly
                 className="my_input !rounded-sm mt-1"
                 placeholder="Enter your name"
@@ -75,7 +75,7 @@ const BookingModal = ({ car, setIsAvailable }) => {
                 required
                 type="email"
                 id="email"
-                value={user.email}
+                value={user?.email}
                 readOnly
                 className="my_input !rounded-sm mt-1"
                 placeholder="Enter your email"

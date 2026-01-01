@@ -10,15 +10,13 @@ import MyContainer from "../MyContainer/MyContainer";
 import Spinner from "../Spinner/Spinner";
 import CarCard from "../CarCard/CarCard";
 import MyTitle from "../Title/MyTitle";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
 import "swiper/css";
 import "swiper/css/navigation";
 
 const SearchCar = () => {
   const [searchCar, setSearchCar] = useState([]);
   const [loader, setLoader] = useState(false);
-  
-
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -110,7 +108,6 @@ const SearchCar = () => {
           </button>
         </motion.div>
       )}
-      
     </MyContainer>
   );
 };

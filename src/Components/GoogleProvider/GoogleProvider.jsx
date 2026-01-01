@@ -8,8 +8,7 @@ import { axiosPublic } from "../../api/axiosPublic";
 const GoogleProvider = ({ children }) => {
   const { otherLoginUser, setLoader } = useAuth();
   const navigate = useNavigate();
-  const {state} = useLocation()
-
+  const { state } = useLocation();
   // google login
   const handleGoogle = () => {
     otherLoginUser(googleProvider)
@@ -22,12 +21,9 @@ const GoogleProvider = ({ children }) => {
             photoURL: user.photoURL,
             provider: user.providerData.providerId,
           };
-          axiosPublic.post("/users", newUser).then((res) => {
-            if (res.data.insertedId) {
-              toast.success("Successfully Login!");
-              navigate(state ||"/");
-            }
-          });
+          toast.success("Successfully Login!");
+          navigate(state || "/");
+          axiosPublic.post("/users", newUser).then();
         }
       })
       .catch((err) => {

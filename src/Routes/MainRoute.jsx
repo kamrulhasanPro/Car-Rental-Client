@@ -28,11 +28,7 @@ export const MainRoute = createBrowserRouter([
       },
       {
         path: "/cars/:id",
-        element: (
-          <PrivetRoute>
-            <CarDetails />
-          </PrivetRoute>
-        ),
+        element: <CarDetails />,
       },
       {
         path: "/my-bookings",
@@ -62,7 +58,6 @@ export const MainRoute = createBrowserRouter([
         path: "/terms-and-condition",
         Component: TermsCondition,
       },
-
     ],
   },
   {

@@ -49,7 +49,7 @@ const TrustedCard = () => {
           <p className="font-medium text-sm text-neutral/50 mt-2 text-center">
             {partner?.label}
           </p>
-          <p className="text-3xl text-black font-semibold mt-2">
+          <p className="text-3xl text-neutral font-semibold mt-2">
             {partner?.value}
           </p>
         </div>

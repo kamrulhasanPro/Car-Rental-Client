@@ -7,6 +7,7 @@ import TopRatedCars from "../../../Components/TopRatedCars/TopRatedCars";
 import SearchCar from "../../../Components/SearchCar/SearchCar";
 import TrustedPartner from "../TrustedPartner/TrustedPartner";
 import RantCarAMinute from "../EasyBookingStep/RantCarAMinute";
+import FAQ from "../FAQ/FAQ";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <RantCarAMinute />
       <TrustedPartner />
       <Feedback />
+      <FAQ />
     </div>
   );
 };

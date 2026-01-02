@@ -6,6 +6,7 @@ import RecentCars from "../../../Components/RecentCars/RecentCars";
 import TopRatedCars from "../../../Components/TopRatedCars/TopRatedCars";
 import SearchCar from "../../../Components/SearchCar/SearchCar";
 import TrustedPartner from "../TrustedPartner/TrustedPartner";
+import RantCarAMinute from "../EasyBookingStep/RantCarAMinute";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <RecentCars />
       <WhyRent />
       <TopRatedCars />
+      <RantCarAMinute />
       <TrustedPartner />
       <Feedback />
     </div>

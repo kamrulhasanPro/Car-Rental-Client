@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const MyTitle = ({children}) => {
+const MyTitle = ({className, children}) => {
   return (
     <>
       <motion.h2
@@ -9,7 +9,7 @@ const MyTitle = ({children}) => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className={`text-3xl md:text-4xl font-semibold text-center mb-5 md:mb-10 mt-8 md:mt-16`}
+        className={`text-3xl md:text-4xl font-semibold text-center mb-5 md:mb-10 mt-8 md:mt-16 ${className}`}
       >
         {children}
       </motion.h2>

@@ -40,6 +40,7 @@ const TrustedCard = () => {
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-white">
       {partners.map((partner) => (
         <div
+          key={partner.id}
           className={`flex flex-col items-center justify-center h-40 ${partner.bgColor} rounded-lg p-2 !bg-linear-to-b`}
         >
           <div className={`text-4xl ${partner.iconColor}`}>

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Tooltip } from "react-tooltip";
 // import "react-tooltip/dist/react-tooltip.css";
 
-
 const CarCard = ({ car }) => {
   const { _id, carName, carStatus, category, image, pricePerDay, description } =
     car;
@@ -17,7 +16,7 @@ const CarCard = ({ car }) => {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="border border-gray-300 rounded-xl overflow-hidden hover:-translate-y-2 hover:shadow-lg transition-all flex flex-col"
+      className="border border-gray-400 rounded-xl overflow-hidden hover:-translate-y-2 hover:shadow-lg transition-all flex flex-col max-w-[450px] w-full"
     >
       {/* image */}
       <figure className="h-54 bg-gray-400 rounded-b-xl overflow-hidden relative ">
@@ -44,9 +43,14 @@ const CarCard = ({ car }) => {
         <p className="text-sm text-gray-400 grow">
           {shortDescription}
           {description.length > 100 && (
-            <span 
-            data-tooltip-id={`desc-${_id}`}
-            data-tooltip-content={description}  className="text-indigo-600 hover:underline"> ...More</span>
+            <span
+              data-tooltip-id={`desc-${_id}`}
+              data-tooltip-content={description}
+              className="text-indigo-600 hover:underline"
+            >
+              {" "}
+              ...More
+            </span>
           )}
         </p>
         <div className="flex gap-2 items-center justify-between mt-4">
@@ -59,10 +63,10 @@ const CarCard = ({ car }) => {
           </Link>
         </div>
       </div>
-      <Tooltip 
-      id={`desc-${_id}`}
-      place="top-end"
-      style={{
+      <Tooltip
+        id={`desc-${_id}`}
+        place="top-end"
+        style={{
           backgroundColor: "#111",
           maxWidth: "300px",
         }}

@@ -6,6 +6,7 @@ import CarCard from "../CarCard/CarCard";
 import { motion } from "framer-motion";
 import Spinner from "../Spinner/Spinner";
 import { toast } from "react-toastify";
+import CarCardSkeleton from "../Skeletor/CarCardSkeletor";
 
 const RecentCars = () => {
   const [recentCars, setRecentCars] = useState([]);
@@ -31,21 +32,17 @@ const RecentCars = () => {
       </MyTitle>
 
       {/* recent cars */}
-      {loader ? (
-        <Spinner />
-      ) : (
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-        >
-          {recentCars.map((car) => (
-            <CarCard key={car._id} car={car} />
-          ))}
-        </motion.div>
-      )}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 place-items-center sm:place-items-baseline"
+      >
+        {loader
+          ? [...Array(4)].map((_, i) => <CarCardSkeleton key={i} />)
+          : recentCars.map((car) => <CarCard key={car._id} car={car} />)}
+      </motion.div>
     </MyContainer>
   );
 };

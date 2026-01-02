@@ -10,6 +10,7 @@ import { FaFilter, FaRegFaceSmile } from "react-icons/fa6";
 import { FaSortAlphaUp } from "react-icons/fa";
 import { Link } from "react-router";
 import { toast } from "react-toastify";
+import CarCardSkeleton from "../../../Components/Skeletor/CarCardSkeletor";
 
 const AllCars = () => {
   const [allCars, setAllCars] = useState([]);
@@ -31,7 +32,7 @@ const AllCars = () => {
   }, [brand, sort, search]);
 
   return (
-    <MyContainer>
+    <MyContainer shortWidth={true}>
       {/* title */}
       <MyTitle>
         All <span className="text-primary border-b-2">Cars</span>
@@ -104,29 +105,27 @@ const AllCars = () => {
         </div>
 
         {/* all cars */}
-        <div className="flex-3">
-          {loader ? (
-            <Spinner />
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-              {allCars.length === 0 ? (
-                <div className="flex col-span-3 items-center justify-center mt-10">
-                  <div className="flex flex-col max-w-80 items-center justify-center bg-white p-4 text-center rounded-2xl gap-2.5 shadow">
-                    <FaRegFaceSmile className="text-3xl text-primary" />
-                    <div>
-                      <h5 className="text-3xl mb-1">Not found cars</h5>
-                      <p className="text-gray-400">
-                        Seller not added this Category cars. Please check
-                        another category.{" "}
-                      </p>
-                    </div>
+        <div className="flex-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center sm:place-items-baseline">
+            {loader ? (
+              [...Array(6)].map((_, i) => <CarCardSkeleton key={i} />)
+            ) : allCars.length === 0 ? (
+              <div className="flex col-span-3 items-center justify-center mt-10">
+                <div className="flex flex-col max-w-80 items-center justify-center bg-white p-4 text-center rounded-2xl gap-2.5 shadow">
+                  <FaRegFaceSmile className="text-3xl text-primary" />
+                  <div>
+                    <h5 className="text-3xl mb-1">Not found cars</h5>
+                    <p className="text-gray-400">
+                      Seller not added this Category cars. Please check another
+                      category.{" "}
+                    </p>
                   </div>
                 </div>
-              ) : (
-                allCars.map((car) => <CarCard key={car._id} car={car} />)
-              )}
-            </div>
-          )}
+              </div>
+            ) : (
+              allCars.map((car) => <CarCard key={car._id} car={car} />)
+            )}
+          </div>
         </div>
       </section>
     </MyContainer>

@@ -26,7 +26,7 @@ const Profile = () => {
       className={"right-0"}
       height={72}
     >
-      <div className="bg-white p-3 rounded-xl border border-gray-300">
+      <div className="bg-base-100  p-3 rounded-xl border border-gray-300">
         <div className="flex items-center gap-2">
           <figure className="w-11 h-11 rounded-full overflow-hidden">
             <img src={user?.photoURL} alt="profile image" />
@@ -57,7 +57,7 @@ const Profile = () => {
           </Link>
 
           {/* toggle theme */}
-          <div className="link_style">
+          <div className="link_style cursor-pointer">
             <ThemeToggle />
           </div>
 

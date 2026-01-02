@@ -9,7 +9,7 @@ const SellerInfo = ({ car }) => {
   return (
     <>
       {/* seller information */}
-      <div className="bg-white rounded-2xl p-4 mb-4">
+      <div className="bg-base-200 rounded-2xl p-4 mb-4">
         <h5 className="text-2xl font-semibold">Provider Information</h5>
 
         <div className="divider my-1"></div>
@@ -32,7 +32,7 @@ const SellerInfo = ({ car }) => {
       </div>
 
       {/* more details */}
-      <div className="bg-white rounded-2xl p-4">
+      <div className="bg-base-200 rounded-2xl p-4">
         <h5 className="text-2xl font-semibold">More Details</h5>
 
         <div className="divider my-1"></div>

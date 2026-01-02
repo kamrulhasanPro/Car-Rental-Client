@@ -6,21 +6,21 @@ import { Link } from "react-router";
 
 const Banner = () => {
   return (
-    <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-neutral md:pl-[5%] relative">
-      <div className="flex-1"></div>
-
-      {/* content */}
-      <div className="bg-linear-to-t md:bg-linear-to-r from-neutral from-75% h-full to-transparent text-white flex-1 relative md:absolute bottom-15 md:bottom-0 w-full md:w-6/12  z-10 flex flex-col items-start  justify-center px-[9%] md:p-0 ">
-        <motion.div
-          animate={{
-            x: ["-20%", "0%"],
-          }}
-          transition={{
-            duration: 2,
-          }}
-          className="space-y-3 "
-        >
-          {/* <h2 className="text-xl whitespace-nowrap">
+    <section className="">
+      {/* slider */}
+      <div className="overflow-hidden w-full relative ">
+        <BannerSlider />
+        <div className="absolute inset-0 z-50 bg-black/80 flex items-center justify-center ">
+          <motion.div
+            animate={{
+              x: ["-20%", "0%"],
+            }}
+            transition={{
+              duration: 2,
+            }}
+            className="space-y-3 text-center"
+          >
+            {/* <h2 className="text-xl whitespace-nowrap">
           
           <Typewriter
             words={[
@@ -32,21 +32,19 @@ const Banner = () => {
             {" "}
             </h2> */}
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl  font-bold">
-            Save big with our <br />
-            <span className="text-secondary">car </span>rental
-          </h1>
-          <p className=" text-gray-400 md:pr-[25%]">
-            To contribute to positive change and achieve our sustainability
-            goals with many extraordinary
-          </p>
-          <Link to={'/cars'} className="my_btn_outline">Rent Car</Link>
-        </motion.div>
-      </div>
-
-      {/* slider */}
-      <div className="overflow-hidden flex-2 w-full ">
-        <BannerSlider />
+            <h1 className="text-3xl md:text-4xl lg:text-5xl  font-bold text-white">
+              Save big with our <br />
+              <span className="text-secondary">car </span>rental
+            </h1>
+            <p className=" text-gray-400 max-w-[571px] px-2">
+              To contribute to positive change and achieve our sustainability
+              goals with many extraordinary
+            </p>
+            <Link to={"/cars"} className="my_btn_outline !text-white">
+              Rent Car
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

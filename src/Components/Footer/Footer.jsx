@@ -11,7 +11,7 @@ import Logo from "../Logo/Logo";
 const Footer = () => {
   return (
     <>
-      <section className="mt-16 bg-neutral text-white py-10 relative z-20 overflow-hidden rounded-t-3xl">
+      <section className="mt-16 bg-base-300 py-10 relative z-20 overflow-hidden rounded-t-3xl shadow shadow-neutral ">
         {/* shadow image */}
         <img
           className="absolute -z-10 opacity-10 md:top-0 right-1/12 top-2/12"
@@ -54,7 +54,7 @@ const Footer = () => {
           {/* navigate */}
           <div className="flex-1 space-y-6">
             <p className="text-xl">Company</p>
-            <ul className="text-gray-300 space-y-0.5">
+            <ul className="text-gray-400 space-y-0.5">
               <li>
                 <Link to={'/terms-and-condition'}>Terms & Condition</Link>
               </li>

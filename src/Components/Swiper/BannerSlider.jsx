@@ -22,7 +22,7 @@ const BannerSlider = () => {
       {image.map((slidingIMG, index) => (
         <SwiperSlide key={index}>
           <img
-            className="hover:scale-105 duration-200 md:min-h-[calc(100vh-63px)] object-cover"
+            className="hover:scale-105 duration-200 h-[calc(100vh-63px)] object-cover w-full"
             src={slidingIMG}
             alt={`Slider ${index + 1}`}
           />

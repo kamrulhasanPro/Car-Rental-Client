@@ -116,14 +116,14 @@ const CarDetails = () => {
           <h4 className="text-4xl font-semibold">{carName}</h4>
 
           {/* description */}
-          <div className="bg-white rounded-2xl p-4">
+          <div className="bg-base-200 rounded-2xl p-4">
             <h5 className="text-2xl font-semibold">Car Description</h5>
             <div className="divider my-1"></div>
             <p className="whitespace-break-spaces">{description}</p>
           </div>
 
           {/* features or other */}
-          <div className="bg-white rounded-2xl p-4">
+          <div className="bg-base-200 rounded-2xl p-4">
             <h5 className="text-2xl font-semibold">Car Details</h5>
             <div className="divider my-1"></div>
 
@@ -188,7 +188,7 @@ const CarDetails = () => {
           </div>
 
           {/* price */}
-          <div className="bg-white rounded-2xl p-4">
+          <div className="bg-base-200 rounded-2xl p-4">
             <h5 className="text-2xl font-semibold">${pricePerDay}</h5>
             <p>
               Price /<small>per day</small>

@@ -8,6 +8,7 @@ import SearchCar from "../../../Components/SearchCar/SearchCar";
 import TrustedPartner from "../TrustedPartner/TrustedPartner";
 import RantCarAMinute from "../EasyBookingStep/RantCarAMinute";
 import FAQ from "../FAQ/FAQ";
+import Newsletter from "../Newsletter/Newsletter";
 
 const Home = () => {
   return (
@@ -15,12 +16,13 @@ const Home = () => {
       <Banner />
       <SearchCar />
       <RecentCars />
-      <WhyRent />
       <TopRatedCars />
+      <WhyRent />
       <RantCarAMinute />
       <TrustedPartner />
       <Feedback />
       <FAQ />
+      <Newsletter />
     </div>
   );
 };

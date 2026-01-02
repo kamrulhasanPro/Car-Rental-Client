@@ -10,7 +10,7 @@ import MyContainer from "../MyContainer/MyContainer";
 import Spinner from "../Spinner/Spinner";
 import CarCard from "../CarCard/CarCard";
 import MyTitle from "../Title/MyTitle";
-import { IoIosArrowBack, IoIosArrowForward  } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "swiper/css";
 import "swiper/css/navigation";
 

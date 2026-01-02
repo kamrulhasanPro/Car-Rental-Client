@@ -13,7 +13,7 @@ const Banner = () => {
         <div className="absolute inset-0 z-50 bg-black/80 flex items-center justify-center ">
           <motion.div
             animate={{
-              x: ["-20%", "0%"],
+              y: ["20%", "0%"],
             }}
             transition={{
               duration: 2,

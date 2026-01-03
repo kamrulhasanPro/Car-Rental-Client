@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 
 const ThemeToggle = () => {
-
-  const theme = localStorage.getItem("theme");
-  console.log(theme === "light");
-  const [mode, setMode] = useState(theme === "light" || true);
+  const [mode, setMode] = useState(() => {
+    return localStorage.getItem("theme") === "light";
+  });
 
   useEffect(() => {
-    const condition = `${mode ? "dark" : "light"}`;
-    localStorage.setItem("theme", condition);
-    document.documentElement.setAttribute("data-theme", theme || "dark");
-
-    console.log(mode);
-  }, [mode, theme]);
+    const currentTheme = mode ? "light" : "dark";
+    localStorage.setItem("theme", currentTheme);
+    document.documentElement.setAttribute("data-theme", currentTheme);
+  }, [mode]);
 
   return (
     <>
@@ -22,7 +19,7 @@ const ThemeToggle = () => {
           type="checkbox"
           id="changeTheme"
           defaultChecked={mode}
-          onChange={(e) => setMode(e.target.checked)}
+          onChange={() => setMode(!mode)}
           className="theme-controller bog"
           value="light"
         />

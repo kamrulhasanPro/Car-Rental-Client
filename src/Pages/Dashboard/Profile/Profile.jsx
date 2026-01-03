@@ -2,21 +2,22 @@ import { useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
 import { MdEdit } from "react-icons/md";
 import { IoMdPhotos } from "react-icons/io";
+import { toast } from "react-toastify";
+import Spinner from "../../../Components/Spinner/Spinner";
 
 const Profile = () => {
-  const { user } = useAuth();
+  const { user, updateUser } = useAuth();
   const [loading, setLoading] = useState(false);
 
   const handleUpdateProfile = (e) => {
     e.preventDefault();
+    const displayName = e.target.name.value;
+    const photoURL = e.target.photo.value;
     setLoading(true);
-
-    // 🔥 later replace with API call
-    setTimeout(() => {
-      console.log({ name, photoURL });
+    updateUser({ displayName, photoURL }).then((res) => {
       setLoading(false);
-      alert("Profile updated successfully!");
-    }, 1000);
+      toast.success("update you profile");
+    });
   };
 
   const [open, setOpen] = useState(false);
@@ -85,6 +86,7 @@ const Profile = () => {
               </svg>
               <input
                 type="text"
+                name="name"
                 defaultValue={user?.displayName}
                 required
                 placeholder="Name"
@@ -100,6 +102,7 @@ const Profile = () => {
               <IoMdPhotos className="text-gray-400" />
               <input
                 type="url"
+                name="photo"
                 className="w-full"
                 defaultValue={user?.photoURL}
                 required
@@ -108,12 +111,11 @@ const Profile = () => {
           </div>
 
           {/* Button */}
-          <button
-            type="submit"
-            className="my_btn w-full"
-            disabled={loading}
-          >
-            {loading ? "Updating..." : "Update Profile"}
+          <button type="submit" className="my_btn w-full" disabled={loading}>
+            {loading && (
+              <span className="loading loading-spinner loading-sm"></span>
+            )}
+            Update Profile
           </button>
         </form>
       </div>

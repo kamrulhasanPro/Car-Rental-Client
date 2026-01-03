@@ -1,11 +1,17 @@
-import React from 'react';
+import React from "react";
+import Greeting from "./greeting";
+import Stats from "./Stats";
 
 const Overview = () => {
-    return (
-        <div>
-            Dashboard Overview
-        </div>
-    );
+  return (
+    <section className="space-y-3">
+      {/* grating */}
+      <Greeting />
+
+      {/* stats */}
+      <Stats />
+    </section>
+  );
 };
 
 export default Overview;

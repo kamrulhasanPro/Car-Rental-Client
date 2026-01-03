@@ -78,7 +78,11 @@ export const MainRoute = createBrowserRouter([
   // dashboard
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivetRoute>
+        <DashboardLayout />
+      </PrivetRoute>
+    ),
     children: [
       {
         index: true,

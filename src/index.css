@@ -3,9 +3,10 @@
 
 @import "tailwindcss";
 @plugin "daisyui";
+
 @plugin "daisyui/theme" {
   name: "light";
-  default: true;
+  default: false;
   --color-primary: #f57c00;
   --color-secondary: #ffa000;
   --color-neutral: #000000;
@@ -14,7 +15,7 @@
 
 @plugin "daisyui/theme" {
   name: "dark";
-  default: false;
+  default: true;
 
   /* Brand colors (same vibe, darker context) */
   --color-primary: #ff9800; /* warm orange, readable on dark */
@@ -24,7 +25,7 @@
   --color-secondary-content: #1a1a1a;
 
   /* Neutrals */
-  --color-neutral: #ffffff;          /* soft gray text */
+  --color-neutral: #ffffff; /* soft gray text */
   --color-neutral-content: #0f172a;
 
   /* Base surfaces */

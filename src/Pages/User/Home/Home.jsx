@@ -1,14 +1,14 @@
 import React from "react";
-import Banner from "../../../Components/Banner/Banner";
-import WhyRent from "../../../Components/WhyRentWithUS/WhyRent";
-import Feedback from "../../../Components/FeedBack/Feedback";
-import RecentCars from "../../../Components/RecentCars/RecentCars";
-import TopRatedCars from "../../../Components/TopRatedCars/TopRatedCars";
-import SearchCar from "../../../Components/SearchCar/SearchCar";
-import TrustedPartner from "../TrustedPartner/TrustedPartner";
-import RantCarAMinute from "../EasyBookingStep/RantCarAMinute";
-import FAQ from "../FAQ/FAQ";
-import Newsletter from "../Newsletter/Newsletter";
+import Banner from "./Sections/Banner/Banner";
+import WhyRent from "./Sections/WhyRentWithUS/WhyRent";
+import Feedback from "./Sections/FeedBack/Feedback";
+import RecentCars from "./Sections/RecentCars/RecentCars";
+import TopRatedCars from "./Sections/TopRatedCars/TopRatedCars";
+import SearchCar from "./Sections/SearchCar/SearchCar";
+import TrustedPartner from "./Sections/TrustedPartner/TrustedPartner";
+import RantCarAMinute from "./Sections/EasyBookingStep/RantCarAMinute";
+import FAQ from "./Sections/FAQ/FAQ";
+import Newsletter from "./Sections/Newsletter/Newsletter";
 
 const Home = () => {
   return (

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import MyTitle from "../Title/MyTitle";
-import MyContainer from "../MyContainer/MyContainer";
-import { axiosPublic } from "../../api/axiosPublic";
-import CarCard from "../CarCard/CarCard";
+import MyTitle from "../../../../../Components/Title/MyTitle";
+import MyContainer from "../../../../../Components/MyContainer/MyContainer";
+import { axiosPublic } from "../../../../../api/axiosPublic";
+import CarCard from "../../../../../Components/Card/CarCard";
 import { motion } from "framer-motion";
-import Spinner from "../Spinner/Spinner";
+import Spinner from "../../../../../Components/Spinner/Spinner";
 import { toast } from "react-toastify";
-import CarCardSkeleton from "../Skeletor/CarCardSkeletor";
+import CarCardSkeleton from "../../../../../Components/Skeletor/CarCardSkeletor";
 
 const RecentCars = () => {
   const [recentCars, setRecentCars] = useState([]);

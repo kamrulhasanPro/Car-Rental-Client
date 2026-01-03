@@ -1,7 +1,7 @@
 import React from "react";
-import MyContainer from "../../../Components/MyContainer/MyContainer";
-import MyTitle from "../../../Components/Title/MyTitle";
-import QuickBookingCard from "../../../Components/QuickBookingCard/QuickBookingCard";
+import MyContainer from "../../../../../Components/MyContainer/MyContainer";
+import MyTitle from "../../../../../Components/Title/MyTitle";
+import QuickBookingCard from "../../../../../Components/Card/QuickBookingCard";
 import { FaCar, FaCalendarAlt, FaCreditCard, FaRoad } from "react-icons/fa";
 
 const RantCarAMinute = () => {

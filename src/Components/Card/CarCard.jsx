@@ -16,7 +16,7 @@ const CarCard = ({ car }) => {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="border border-gray-400 rounded-xl overflow-hidden hover:-translate-y-2 hover:shadow-lg transition-all flex flex-col max-w-[450px] w-full"
+      className="border border-gray-400 rounded-xl overflow-hidden hover:-translate-y-2 hover:shadow-lg transition-all flex flex-col max-w-[450px] w-full h-full"
     >
       {/* image */}
       <figure className="h-54 bg-gray-400 rounded-b-xl overflow-hidden relative ">

@@ -5,6 +5,7 @@ import MyContainer from "../MyContainer/MyContainer";
 import useAuth from "../../Hooks/useAuth";
 import Profile from "./Profile";
 import { RiMenu2Fill } from "react-icons/ri";
+import Logo from "../Logo/Logo";
 
 const Navbar = () => {
   const { user } = useAuth();
@@ -60,14 +61,7 @@ const Navbar = () => {
           </div>
 
           {/* logo */}
-          <Link to={"/"} className="flex items-end justify-center gap-2">
-            <figure className="w-10 h-10 overflow-hidden">
-              <img src="./Logo.png" alt="" />
-            </figure>
-            <p className="text-xl font-semibold hidden sm:inline">
-              <span className="text-primary">Car</span> Rental
-            </p>
-          </Link>
+          <Logo/>
         </div>
 
         {/* custom dropdown for profile */}

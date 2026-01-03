@@ -7,7 +7,7 @@ import MyTitle from "../../../Components/Title/MyTitle";
 import Spinner from "../../../Components/Spinner/Spinner";
 import { FaRegFaceSmile } from "react-icons/fa6";
 import { Link } from "react-router";
-import ListingsCars from "../../../Components/ListingsCard/ListingsCars";
+import ListingsCars from "../../../Components/Card/ListingsCars";
 import CarEditModal from "../../../Components/Modal/CarEditModal";
 import { motion } from "framer-motion";
 
@@ -21,7 +21,7 @@ const MyListings = () => {
 
   useEffect(() => {
     setLoader(true);
-    axiosSecure(`/cars?email=${user.email}`)
+    axiosSecure(`/cars?email=${user?.email}`)
       .then((res) => {
         setMyCar(res.data);
         setLoader(false);

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import MyTitle from "../Title/MyTitle";
-import { axiosPublic } from "../../api/axiosPublic";
+import MyTitle from "../../../../../Components/Title/MyTitle";
+import { axiosPublic } from "../../../../../api/axiosPublic";
 import { toast } from "react-toastify";
-import MyContainer from "../MyContainer/MyContainer";
-import Spinner from "../Spinner/Spinner";
-import TopRatedCarsCard from "./TopRatedCarsCard";
+import MyContainer from "../../../../../Components/MyContainer/MyContainer";
+import Spinner from "../../../../../Components/Spinner/Spinner";
+import TopRatedCarsCard from "../../../../../Components/Card/TopRatedCarsCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { motion } from "framer-motion";
@@ -32,8 +32,6 @@ const TopRatedCars = () => {
         Top Rated <span className="text-primary border-b-2">Cars</span>
       </MyTitle>
 
-      
-
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -42,11 +40,11 @@ const TopRatedCars = () => {
         className="relative"
       >
         <img
-            className="absolute left-0 bottom-0 -z-10 object-cover h-80"
-            src="https://i.postimg.cc/5y7KpkBM/home4_car_tab_bg.png"
-            alt=""
-          />
-        
+          className="absolute left-0 bottom-0 -z-10 object-cover h-80"
+          src="https://i.postimg.cc/5y7KpkBM/home4_car_tab_bg.png"
+          alt=""
+        />
+
         {loading ? (
           <Spinner />
         ) : (
@@ -56,7 +54,7 @@ const TopRatedCars = () => {
             loop={true}
             speed={1500}
             slidesPerView={1}
-            pagination={{clickable: true, el: '.custom-pagination'}}
+            pagination={{ clickable: true, el: ".custom-pagination" }}
           >
             {topCar.map((car, index) => (
               <SwiperSlide key={index}>

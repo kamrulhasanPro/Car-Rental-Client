@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import MyTitle from "../../../Components/Title/MyTitle";
 import MyContainer from "../../../Components/MyContainer/MyContainer";
 import { axiosPublic } from "../../../api/axiosPublic";
-import CarCard from "../../../Components/CarCard/CarCard";
+import CarCard from "../../../Components/Card/CarCard";
 import { motion } from "framer-motion";
 import Spinner from "../../../Components/Spinner/Spinner";
 import { IoSearchSharp } from "react-icons/io5";

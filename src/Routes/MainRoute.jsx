@@ -14,8 +14,12 @@ import NotFoundPageLayout from "../Layouts/NotFoundPageLayout";
 import TermsCondition from "../Pages/User/Terms&Condition/TermsCondition";
 import About from "../Pages/User/About/About";
 import Contact from "../Pages/User/Contact/Contact";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import Overview from "../Pages/Dashboard/Overview/Overview";
+import Profile from "../Pages/Dashboard/Profile/Profile";
 
 export const MainRoute = createBrowserRouter([
+  // user
   {
     path: "/",
     Component: MainLayout,
@@ -29,12 +33,12 @@ export const MainRoute = createBrowserRouter([
         Component: AllCars,
       },
       {
-        path: '/about',
-        Component: About
+        path: "/about",
+        Component: About,
       },
       {
-        path: '/contact',
-        Component: Contact
+        path: "/contact",
+        Component: Contact,
       },
       {
         path: "/cars/:id",
@@ -70,6 +74,36 @@ export const MainRoute = createBrowserRouter([
       },
     ],
   },
+
+  // dashboard
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <Overview />,
+      },
+      {
+        path: "add-car",
+        element: <AddCar />,
+      },
+      {
+        path: "my-bookings",
+        element: <MyBookings />,
+      },
+      {
+        path: "manage-cars",
+        element: <MyListings />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+    ],
+  },
+
+  // auth
   {
     // path: '/',
     Component: AuthLayout,
@@ -84,6 +118,8 @@ export const MainRoute = createBrowserRouter([
       },
     ],
   },
+
+  // not found
   {
     path: "/*",
     Component: NotFoundPageLayout,

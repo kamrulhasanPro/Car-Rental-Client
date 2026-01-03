@@ -6,7 +6,7 @@ import Spinner from "../../../Components/Spinner/Spinner";
 import { FaRegFaceSmile } from "react-icons/fa6";
 import MyContainer from "../../../Components/MyContainer/MyContainer";
 import { Link } from "react-router";
-import BookingCard from "../../../Components/BookingCard/BookingCard";
+import BookingCard from "../../../Components/Card/BookingCard";
 import MyTitle from "../../../Components/Title/MyTitle";
 
 const MyBookings = () => {
@@ -18,7 +18,7 @@ const MyBookings = () => {
   useEffect(() => {
     setLoader(true);
     axiosSecure
-      .get(`booking-cars?email=${user.email}`)
+      .get(`booking-cars?email=${user?.email}`)
       .then((res) => {
         setBooked(res.data);
         setLoader(false);

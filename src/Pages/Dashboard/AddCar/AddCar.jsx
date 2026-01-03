@@ -74,7 +74,7 @@ const AddCar = () => {
               Provider Name
             </label>
             <input
-              value={user.displayName}
+              value={user?.displayName}
               readOnly
               type="text"
               name="providerName"
@@ -91,7 +91,7 @@ const AddCar = () => {
               type="email"
               name="providerEmail"
               className="my_input_box"
-              value={user.email}
+              value={user?.email}
               readOnly
             />
           </div>

@@ -1,7 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const ThemeToggle = () => {
-  const [mode, setMode] = useState(false);
+
+  const theme = localStorage.getItem("theme");
+  console.log(theme === "light");
+  const [mode, setMode] = useState(theme === "light" || true);
+
+  useEffect(() => {
+    const condition = `${mode ? "dark" : "light"}`;
+    localStorage.setItem("theme", condition);
+    document.documentElement.setAttribute("data-theme", theme || "dark");
+
+    console.log(mode);
+  }, [mode, theme]);
+
   return (
     <>
       <label className="swap swap-rotate">
@@ -9,9 +21,10 @@ const ThemeToggle = () => {
         <input
           type="checkbox"
           id="changeTheme"
+          defaultChecked={mode}
           onChange={(e) => setMode(e.target.checked)}
           className="theme-controller bog"
-          value="dark"
+          value="light"
         />
 
         {/* sun icon */}

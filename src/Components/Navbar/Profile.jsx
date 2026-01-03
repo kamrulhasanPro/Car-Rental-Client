@@ -45,7 +45,7 @@ const Profile = () => {
           </Link>
 
           {/* dashboard */}
-          <Link className="link_style">
+          <Link to={"/dashboard"} className="link_style">
             <MdOutlineDashboard size={20} />
             Dashboard
           </Link>

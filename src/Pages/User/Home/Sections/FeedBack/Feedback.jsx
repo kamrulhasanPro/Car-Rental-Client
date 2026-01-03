@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import MyTitle from "../Title/MyTitle";
-import FeedbackCard from "./FeedbackCard";
-import MyContainer from "../MyContainer/MyContainer";
+import MyTitle from "../../../../../Components/Title/MyTitle";
+import FeedbackCard from "../../../../../Components/Card/FeedbackCard";
+import MyContainer from "../../../../../Components/MyContainer/MyContainer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
-import { axiosPublic } from "../../api/axiosPublic";
+import { axiosPublic } from "../../../../../api/axiosPublic";
 import { toast } from "react-toastify";
 
 const Feedback = () => {

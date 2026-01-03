@@ -8,9 +8,9 @@ import {
   FaGasPump,
 } from "react-icons/fa";
 import { MdSupportAgent } from "react-icons/md";
-import WhyRentCard from "./WhyRentCard";
-import MyContainer from "../MyContainer/MyContainer";
-import MyTitle from "../Title/MyTitle";
+import WhyRentCard from "../../../../../Components/Card/WhyRentCard";
+import MyContainer from "../../../../../Components/MyContainer/MyContainer";
+import MyTitle from "../../../../../Components/Title/MyTitle";
 
 const WhyRent = () => {
   // features array
@@ -55,10 +55,7 @@ const WhyRent = () => {
       </MyTitle>
 
       {/* rant cards */}
-      <div
-        
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2"
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
         {features.map((feature, index) => (
           <WhyRentCard key={index} feature={feature} />
         ))}

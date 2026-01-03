@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import BannerSlider from "../Swiper/BannerSlider";
+import BannerSlider from "../../../../../Components/Swiper/BannerSlider";
 import { motion } from "framer-motion";
 import { Link } from "react-router";
 // import { Typewriter } from "react-simple-typewriter";

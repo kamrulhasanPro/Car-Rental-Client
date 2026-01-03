@@ -1,6 +1,6 @@
 import React from "react";
-import MyContainer from "../../../Components/MyContainer/MyContainer";
-import MyTitle from "../../../Components/Title/MyTitle";
+import MyContainer from "../../../../../Components/MyContainer/MyContainer";
+import MyTitle from "../../../../../Components/Title/MyTitle";
 
 const FAQ = () => {
   const questions = [
@@ -38,7 +38,10 @@ const FAQ = () => {
 
   return (
     <MyContainer>
-      <MyTitle>Frequently <span className="text-primary border-b-2">Asked</span> Questions</MyTitle>
+      <MyTitle>
+        Frequently <span className="text-primary border-b-2">Asked</span>{" "}
+        Questions
+      </MyTitle>
 
       {/* FAQ */}
       <div className="space-y-3">
@@ -51,7 +54,9 @@ const FAQ = () => {
             <div className="collapse-title font-semibold">
               {question.question}
             </div>
-            <div className="collapse-content text-sm text-neutral/50">{question.answer}</div>
+            <div className="collapse-content text-sm text-neutral/50">
+              {question.answer}
+            </div>
           </div>
         ))}
       </div>

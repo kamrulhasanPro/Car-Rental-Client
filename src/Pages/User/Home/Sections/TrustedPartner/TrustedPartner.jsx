@@ -1,8 +1,8 @@
 import React from "react";
 import { FaCarSide, FaClipboardCheck, FaSmile, FaAward } from "react-icons/fa";
-import TrustedCard from "../../../Components/TrustedCard/TrustedCard";
-import MyContainer from "../../../Components/MyContainer/MyContainer";
-import MyTitle from "../../../Components/Title/MyTitle";
+import TrustedCard from "../../../../../Components/Card/TrustedCard";
+import MyContainer from "../../../../../Components/MyContainer/MyContainer";
+import MyTitle from "../../../../../Components/Title/MyTitle";
 
 const TrustedPartner = () => {
   return (

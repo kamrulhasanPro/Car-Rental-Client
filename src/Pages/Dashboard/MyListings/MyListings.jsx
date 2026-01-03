@@ -31,7 +31,7 @@ const MyListings = () => {
 
   const emptyMyCar = (
     <div className="flex items-center justify-center mt-10">
-      <MyContainer className="flex flex-col max-w-80 items-center justify-center bg-white p-4 text-center rounded-2xl gap-2.5 shadow">
+      <MyContainer className="flex flex-col max-w-80 items-center justify-center bg-base-200 p-4 text-center rounded-2xl gap-2.5 shadow">
         <FaRegFaceSmile className="text-3xl text-primary" />
         <div>
           <h5 className="text-3xl mb-1">Not found your car</h5>
@@ -49,8 +49,8 @@ const MyListings = () => {
   return (
     <MyContainer>
       {/* title */}
-      <MyTitle>
-        Add <span className="text-primary border-b-2">New Car</span>
+      <MyTitle className={'!mt-0'}>
+        Manage <span className="text-primary border-b-2">Cars</span>
       </MyTitle>
 
       {/* my car */}
@@ -69,7 +69,7 @@ const MyListings = () => {
           >
             <table className="w-full shadow-sm rou text-left">
               <thead>
-                <tr className="bg-amber-100 overflow-hidden">
+                <tr className="bg-base-200 overflow-hidden">
                   <th className="my_thead">Product</th>
                   <th className="my_thead">Category</th>
                   <th className="my_thead">Price</th>

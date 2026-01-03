@@ -54,14 +54,14 @@ const AddCar = () => {
   return (
     <MyContainer>
       {/* title */}
-      <MyTitle>
+      <MyTitle className={'!mt-0'}>
         Add <span className="text-primary border-b-2">New Car</span>
       </MyTitle>
 
       {/* add car form */}
       <form
         onSubmit={handleCreate}
-        className="bg-white p-7 rounded-2xl lg:max-w-9/12 mx-auto"
+        className="bg-base-200 p-7 rounded-2xl lg:max-w-9/12 mx-auto"
       >
         {/* --------provider information------- */}
         <h5 className="text-2xl font-medium text-primary mb-2">

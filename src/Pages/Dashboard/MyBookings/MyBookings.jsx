@@ -28,7 +28,7 @@ const MyBookings = () => {
 
   const emptyBooked = (
     <div className="flex items-center justify-center mt-10">
-      <MyContainer className="flex flex-col max-w-80 items-center justify-center bg-white p-4 text-center rounded-2xl gap-2.5 shadow">
+      <MyContainer className="flex flex-col max-w-80 items-center justify-center bg-base-200 p-4 text-center rounded-2xl gap-2.5 shadow">
         <FaRegFaceSmile className="text-3xl text-primary" />
         <div>
           <h5 className="text-3xl mb-1">No Booked Car Yet</h5>
@@ -47,7 +47,7 @@ const MyBookings = () => {
 
   return (
     <MyContainer>
-      <MyTitle>
+      <MyTitle className={"!mt-0"}>
         My Bookings <span className="text-primary border-b-2">Cars</span>
       </MyTitle>
       {loader ? (

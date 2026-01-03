@@ -41,7 +41,7 @@ const ListingsCars = ({ car, share, showModal }) => {
   };
 
   return (
-    <tr className="bg-white border-t-2 border-[#E9E9E9]">
+    <tr className="bg-base-300 border-t-2 border-[#E9E9E9]">
       {/* product */}
       <td className="my_tData">
         <div className="flex items-center gap-2">

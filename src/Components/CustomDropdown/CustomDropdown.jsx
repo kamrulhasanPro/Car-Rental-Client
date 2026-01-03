@@ -13,7 +13,7 @@ const CustomDropdown = ({ trigger, children, className, height }) => {
     return () => document.removeEventListener("mousedown", outsideHandle);
   }, [dropdownRef]);
   return (
-    <div className="" ref={dropdownRef}>
+    <div className="z-50" ref={dropdownRef}>
       {/* trigger */}
       <div onClick={() => setShow(!show)} className="">
         {trigger}

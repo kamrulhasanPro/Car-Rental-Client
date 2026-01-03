@@ -23,7 +23,7 @@ const BookingCard = ({ car, share }) => {
     description,
   } = car;
   const shortDescription =
-    description.length > 200 ? description.slice(0, 200) : description;
+    description.length > 100 ? description.slice(0, 100) : description;
 
   const handleRemove = () => {
     Swal.fire({
@@ -82,11 +82,11 @@ const BookingCard = ({ car, share }) => {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="flex flex-col md:flex-row md:items-center gap-2 justify-between my_bg text-white rounded-xl p-4 mb-4"
+      className="flex flex-col md:flex-row md:items-center gap-2 justify-between bg-base-300 text-white rounded-xl p-4 mb-4"
     >
       {/* details */}
       <div className="flex-2">
-        <h5 className="text-2xl font-medium">{carName}</h5>
+        <h5 className="text-2xl text-neutral font-medium">{carName}</h5>
         <div className="flex items-center gap-2 mt-2 flex-wrap">
           <button className={`${btnStyle} bg-red-300`}>
             <BiSolidCategory />
@@ -101,10 +101,17 @@ const BookingCard = ({ car, share }) => {
             {new Date(bookingTime).toLocaleDateString()}
           </button>
         </div>
-        <p className="mt-2">
+        <p className="mt-2 text-gray-400">
           {shortDescription}
           {description.length > 100 && (
-            <span data-tooltip-content={description} data-tooltip-id={`desc-${_id}`} className="text-indigo-600 hover:underline"> ...More</span>
+            <span
+              data-tooltip-content={description}
+              data-tooltip-id={`desc-${_id}`}
+              className="text-indigo-600 hover:underline"
+            >
+              {" "}
+              ...More
+            </span>
           )}
         </p>
       </div>
@@ -117,7 +124,7 @@ const BookingCard = ({ car, share }) => {
               <BsThreeDotsVertical size={24} className="cursor-pointer" />
             }
             height={30}
-            className={"right-5 top-0"}
+            className={"right-5"}
           >
             <div className="flex flex-col bg-white p-2 rounded-lg gap-2 ">
               {actionBtn}
@@ -127,12 +134,12 @@ const BookingCard = ({ car, share }) => {
         <div className="space-x-2 md:hidden">{actionBtn}</div>
       </div>
       <Tooltip
-      id={`desc-${_id}`}
-      place="top"
-      style={{
-        background: '#111',
-        maxWidth: '300px'
-      }}
+        id={`desc-${_id}`}
+        place="top"
+        style={{
+          background: "#111",
+          maxWidth: "300px",
+        }}
       />
     </motion.div>
   );

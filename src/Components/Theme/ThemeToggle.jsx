@@ -43,7 +43,7 @@ const ThemeToggle = () => {
         </svg>
       </label>
       <label htmlFor="changeTheme" className="cursor-pointer">
-        <p className="swap-on">{mode ? "Light" : "Dark"} Mode</p>
+        <p className="swap-on">{mode ? "Dark" : "Light"} Mode</p>
       </label>
     </>
   );

@@ -1,10 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import MyContainer from "../../../../../Components/MyContainer/MyContainer";
 import MyTitle from "../../../../../Components/Title/MyTitle";
 import { MdEmail } from "react-icons/md";
 import MailIcon from "../../../../../Components/MailIcon";
+import { toast } from "react-toastify";
 
 const Newsletter = () => {
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "3c1b4e59-0e18-439a-99f5-caa992b8b580");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setLoading(false);
+      toast.success('"Form Submitted Successfully"');
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      toast.error(data.message);
+      setLoading(false);
+    }
+  };
   return (
     <MyContainer
       className={
@@ -24,12 +51,12 @@ const Newsletter = () => {
 
       {/* email */}
       <form
-        //   onSubmit={handleSearch}
+        onSubmit={onSubmit}
         className="flex items-center justify-between border bg-white/80 text-gray-900 focus-within:border-primary rounded-full overflow-hidden max-w-96 mb-2"
       >
         <input
           type="email"
-          name="email"
+          name="NewsLetter Email"
           className="my_input outline-none"
           placeholder="suppose@gmail.com"
         />
@@ -37,8 +64,11 @@ const Newsletter = () => {
           type="submit"
           className="my_bg py-3 px-2  flex items-center justify-center text-white cursor-pointer"
         >
-          {/* <IoSearchSharp /> */}
-          Submit
+          {loading ? (
+            <span className="loading loading-spinner loading-sm"></span>
+          ) : (
+            "Send"
+          )}
         </button>
       </form>
       <p className="text-sm text-gray-400 text-center italic">

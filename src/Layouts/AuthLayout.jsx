@@ -3,7 +3,7 @@ import { Outlet } from "react-router";
 import PageWrapper from "../Components/PageWrapper/PageWrapper";
 import Footer from "../Components/Footer/Footer";
 import Navbar from "../Components/Navbar/Navbar";
-import ScrollToTop from "../Components/ScrollToTop/ScrollToTop";
+import ScrollToTop from "../Components/Scroll/ScrollToTop";
 
 const AuthLayout = () => {
   return (

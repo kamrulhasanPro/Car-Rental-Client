@@ -12,6 +12,7 @@ import { CgProfile } from "react-icons/cg";
 import SidebarMenuItem from "../Components/Dashboard/Sidebar/SidebarMenuItem";
 import { FiHome } from "react-icons/fi";
 import Profile from "../Components/Navbar/Profile";
+import { RiMenu2Fill } from "react-icons/ri";
 
 const DashboardLayout = () => {
   return (
@@ -20,8 +21,18 @@ const DashboardLayout = () => {
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           {/* Navbar */}
-          <div className="navbar bg-base-100 shadow-sm px-4">
-            <div className="flex-1">
+          <div className="navbar bg-base-100 shadow-sm px-4 sticky top-0">
+            <div className="flex-1 flex items-center gap-4">
+              <label
+                htmlFor="my-drawer-4"
+                aria-label="open sidebar"
+                className="md:hidden cursor-pointer"
+              >
+                <RiMenu2Fill
+                  size={24}
+                  className="is-drawer-open:rotate-180 duration-300 my-1.5 inline-block size-4"
+                />
+              </label>
               <Logo />
             </div>
             <div className="navbar-end flex-none">
@@ -65,7 +76,7 @@ const DashboardLayout = () => {
                   </div>
                 </div>
               </div> */}
-              <ul className="menu-horizontal gap-6 px-1 mr-4 hidden md:flex">
+              <ul className="menu-horizontal gap-6 px-1 mr-4 flex">
                 <Profile />
               </ul>
             </div>

@@ -67,7 +67,7 @@ const CarEditModal = ({ car, share }) => {
           {/* add car form */}
           <form
             onSubmit={handleEdit}
-            className="bg-white p-7 rounded-2xl  mx-auto"
+            className="bg-base-200 p-7 rounded-2xl  mx-auto"
           >
             {/* --------provider information------- */}
             <h5 className="text-2xl font-medium text-primary mb-2">

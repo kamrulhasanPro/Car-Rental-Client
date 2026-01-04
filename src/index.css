@@ -37,6 +37,11 @@
   --color-base-300: #1e293b; /* borders / subtle surfaces */
 }
 
+
+[data-lenis] {
+  min-height: 100vh;
+}
+
 /* font all add  */
 * {
   font-family: "Inter", sans-serif;

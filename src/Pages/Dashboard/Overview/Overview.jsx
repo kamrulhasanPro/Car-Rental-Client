@@ -1,6 +1,7 @@
 import React from "react";
 import Greeting from "./greeting";
 import Stats from "./Stats";
+import Rechart from "./Rechart";
 
 const Overview = () => {
   return (
@@ -10,6 +11,9 @@ const Overview = () => {
 
       {/* stats */}
       <Stats />
+
+      {/* rechart */}
+      <Rechart />
     </section>
   );
 };

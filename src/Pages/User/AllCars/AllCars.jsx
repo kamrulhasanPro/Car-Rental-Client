@@ -111,7 +111,7 @@ const AllCars = () => {
               [...Array(6)].map((_, i) => <CarCardSkeleton key={i} />)
             ) : allCars.length === 0 ? (
               <div className="flex col-span-3 items-center justify-center mt-10">
-                <div className="flex flex-col max-w-80 items-center justify-center bg-white p-4 text-center rounded-2xl gap-2.5 shadow">
+                <div className="flex flex-col max-w-80 items-center justify-center bg-base-200  p-4 text-center rounded-2xl gap-2.5 shadow">
                   <FaRegFaceSmile className="text-3xl text-primary" />
                   <div>
                     <h5 className="text-3xl mb-1">Not found cars</h5>

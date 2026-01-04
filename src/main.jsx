@@ -5,12 +5,15 @@ import { RouterProvider } from "react-router/dom";
 import { MainRoute } from "./Routes/MainRoute.jsx";
 import { ToastContainer } from "react-toastify";
 import AuthProvider from "./Providers/AuthProvider.jsx";
+import SmoothScroll from "./Components/Scroll/SmoothScroll.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
-      <RouterProvider router={MainRoute} />
-      <ToastContainer />
-    </AuthProvider>
+    <SmoothScroll>
+      <AuthProvider>
+        <RouterProvider router={MainRoute} />
+        <ToastContainer />
+      </AuthProvider>
+    </SmoothScroll>
   </StrictMode>
 );

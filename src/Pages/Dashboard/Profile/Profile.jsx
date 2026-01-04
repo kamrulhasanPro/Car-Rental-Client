@@ -3,20 +3,28 @@ import useAuth from "../../../Hooks/useAuth";
 import { MdEdit } from "react-icons/md";
 import { IoMdPhotos } from "react-icons/io";
 import { toast } from "react-toastify";
-import Spinner from "../../../Components/Spinner/Spinner";
+import { useAxiosSecure } from "../../../api/useAxiosSecure";
 
 const Profile = () => {
   const { user, updateUser } = useAuth();
   const [loading, setLoading] = useState(false);
+  const axiosSecure = useAxiosSecure();
 
   const handleUpdateProfile = (e) => {
     e.preventDefault();
     const displayName = e.target.name.value;
     const photoURL = e.target.photo.value;
+    const update = { displayName, photoURL };
     setLoading(true);
-    updateUser({ displayName, photoURL }).then((res) => {
-      setLoading(false);
-      toast.success("update you profile");
+    updateUser(update).then(async (res) => {
+      const result = await axiosSecure.patch(`/user/${user?.email}`, {
+        name: displayName,
+        photoURL,
+      });
+      if (result.data.modifiedCount) {
+        setLoading(false);
+        toast.success("update you profile");
+      }
     });
   };
 

@@ -69,6 +69,8 @@ const CarDetails = () => {
   if (car.length === 0) {
     return (
       <div className="flex items-center justify-center mt-10">
+                <title>Car Rental | Details</title>
+
         <MyContainer className="flex flex-col max-w-80 items-center justify-center bg-white p-4 text-center rounded-2xl gap-2.5 shadow">
           <FaRegFaceSmile className="text-3xl text-primary" />
           <div>

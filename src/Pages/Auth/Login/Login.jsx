@@ -107,7 +107,7 @@ const Login = () => {
 
             <button className="my_btn btn-block !rounded-full">
               {loader && (
-                <span className="loading loading-spinner loading-sm"></span>
+                <span className="loading loading-spinner loading-sm mr-2"></span>
               )}
               Sign In
             </button>

@@ -33,6 +33,8 @@ const AllCars = () => {
 
   return (
     <MyContainer shortWidth={true}>
+              <title>Car Rental | Cars</title>
+
       {/* title */}
       <MyTitle>
         All <span className="text-primary border-b-2">Cars</span>

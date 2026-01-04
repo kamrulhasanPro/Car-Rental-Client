@@ -6,6 +6,8 @@ import Rechart from "./Rechart";
 const Overview = () => {
   return (
     <section className="space-y-3">
+      <title>Car Rental | Dashboard</title>
+
       {/* grating */}
       <Greeting />
 

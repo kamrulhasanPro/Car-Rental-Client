@@ -32,6 +32,8 @@ const Profile = () => {
 
   return (
     <div className="max-w-xl mx-auto">
+      <title>Car Rental | Dashboard My-Profile</title>
+
       <h2 className="text-2xl font-semibold mb-6">My Profile</h2>
 
       <div

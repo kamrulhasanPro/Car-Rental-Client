@@ -53,8 +53,10 @@ const AddCar = () => {
 
   return (
     <MyContainer>
+      <title>Car Rental | Dashboard Add-Car</title>
+
       {/* title */}
-      <MyTitle className={'!mt-0'}>
+      <MyTitle className={"!mt-0"}>
         Add <span className="text-primary border-b-2">New Car</span>
       </MyTitle>
 

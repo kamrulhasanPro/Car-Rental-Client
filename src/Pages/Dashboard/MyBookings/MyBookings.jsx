@@ -47,6 +47,8 @@ const MyBookings = () => {
 
   return (
     <MyContainer>
+      <title>Car Rental | Dashboard My-Booking</title>
+
       <MyTitle className={"!mt-0"}>
         My Bookings <span className="text-primary border-b-2">Cars</span>
       </MyTitle>

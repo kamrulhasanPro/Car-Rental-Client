@@ -5,6 +5,8 @@ import OurVision from "./section/OurVision";
 const About = () => {
   return (
     <MyContainer className="">
+      <title>Car Rental | About</title>
+
       <div className="mx-auto  py-16 space-y-20">
         {/* ===== Section 1: About Us ===== */}
         <AboutUs />

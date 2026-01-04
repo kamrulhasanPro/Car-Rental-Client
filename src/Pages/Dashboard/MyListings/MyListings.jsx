@@ -48,6 +48,8 @@ const MyListings = () => {
 
   return (
     <MyContainer>
+      <title>Car Rental | Dashboard My-Cars</title>
+
       {/* title */}
       <MyTitle className={"!mt-0"}>
         Manage <span className="text-primary border-b-2">Cars</span>

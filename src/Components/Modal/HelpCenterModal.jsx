@@ -36,7 +36,7 @@ const HelpCenterModal = () => {
               <div>
                 <p className="text-sm font-medium">Email Us</p>
                 <p className="text-xs text-base-content/70">
-                  support@yourbrand.com
+                  support@carrental.com
                 </p>
               </div>
             </div>

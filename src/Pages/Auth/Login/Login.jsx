@@ -12,6 +12,22 @@ const Login = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
 
+  const handleDemoLogin = () => {
+    const demoEmail = "user@gmail.com";
+    const demoPassword = "1User1";
+
+    // login user
+    loginUser(demoEmail, demoPassword)
+      .then(() => {
+        toast.success("Successfully Login!");
+        navigate(state || "/");
+      })
+      .catch((err) => {
+        toast.error(err.code);
+        setLoader(false);
+      });
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -32,7 +48,7 @@ const Login = () => {
   return (
     <MyContainer className="flex justify-between rounded-3xl overflow-hidden mt-10 shadow">
       {/* banner */}
-      <div className="hidden sm:flex flex-col items-center justify-center flex-1 bg-neutral text-white p-5 rounded-3xl overflow-hidden">
+      <div className="hidden sm:flex flex-col items-center justify-center flex-1 text-white p-5 rounded-3xl overflow-hidden bg-base-300">
         <p className="text-4xl text-center">
           Easy <span className="text-primary border-b-2">Car</span> Rental
         </p>
@@ -98,6 +114,14 @@ const Login = () => {
           </form>
           <p className={"divider"}>OR</p>
           <GoogleProvider>Login</GoogleProvider>
+
+          {/* demo login */}
+          <button
+            onClick={handleDemoLogin}
+            className="btn btn-circle btn-block mt-2"
+          >
+            Demo Login
+          </button>
         </div>
       </div>
     </MyContainer>

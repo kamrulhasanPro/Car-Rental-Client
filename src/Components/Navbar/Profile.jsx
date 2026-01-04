@@ -8,14 +8,17 @@ import {
   MdOutlineDashboard,
   MdOutlineSupportAgent,
 } from "react-icons/md";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import ThemeToggle from "../Theme/ThemeToggle";
+import { RiHomeFill } from "react-icons/ri";
 
 const Profile = () => {
   const { user, signOutUser } = useAuth();
   const handleLogout = () => {
     signOutUser().then(() => toast.success("Logout Success"));
   };
+  const { pathname } = useLocation();
+  const isHome = pathname.includes("/dashboard");
   return (
     <CustomDropdown
       trigger={
@@ -40,15 +43,22 @@ const Profile = () => {
         <div className="divider m-0" />
         <div className="text-natural ">
           {/* profile */}
-          <Link className="link_style">
+          <Link className="link_style" to={"/dashboard/profile"}>
             <GoPerson size={20} /> Profile
           </Link>
 
           {/* dashboard */}
-          <Link to={"/dashboard"} className="link_style">
-            <MdOutlineDashboard size={20} />
-            Dashboard
-          </Link>
+          {isHome ? (
+            <Link to={"/"} className="link_style">
+              <RiHomeFill size={20} />
+              Main Home
+            </Link>
+          ) : (
+            <Link to={"/dashboard"} className="link_style">
+              <MdOutlineDashboard size={20} />
+              Dashboard
+            </Link>
+          )}
 
           {/* help center */}
           <Link className="link_style">

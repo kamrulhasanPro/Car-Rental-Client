@@ -64,7 +64,7 @@ const Signup = () => {
   };
   return (
     <>
-      <MyContainer className="flex justify-between rounded-3xl overflow-hidden mt-10 shadow bg-neutral ">
+      <MyContainer className="flex justify-between rounded-3xl overflow-hidden mt-10 shadow bg-base-300 ">
         {/* banner */}
         <div className="hidden sm:flex flex-col items-center justify-center flex-1  text-white p-5 ">
           <p className="text-4xl text-center">

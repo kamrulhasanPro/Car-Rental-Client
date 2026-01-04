@@ -13,15 +13,21 @@ import SidebarMenuItem from "../Components/Dashboard/Sidebar/SidebarMenuItem";
 import { FiHome } from "react-icons/fi";
 import Profile from "../Components/Navbar/Profile";
 import { RiMenu2Fill } from "react-icons/ri";
+import useAuth from "../Hooks/useAuth";
 
 const DashboardLayout = () => {
+  const { signOutUser } = useAuth();
+  const handleLogout = () => {
+    signOutUser().then(() => toast.success("Logout Success"));
+  };
+
   return (
     <section>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           {/* Navbar */}
-          <div className="navbar bg-base-100 shadow-sm px-4 sticky top-0">
+          <div className="navbar bg-base-100 shadow-sm px-4 sticky top-0 z-40">
             <div className="flex-1 flex items-center gap-4">
               <label
                 htmlFor="my-drawer-4"
@@ -151,7 +157,11 @@ const DashboardLayout = () => {
                 Profile
               </SidebarMenuItem>
               <li>
-                <button className="hover:bg-error" data-tip="Logout">
+                <button
+                  onClick={handleLogout}
+                  className="hover:bg-error"
+                  data-tip="Logout"
+                >
                   <MdLogout className="my-1.5 inline-block " />
                   <span className="is-drawer-close:hidden text-nowrap">
                     Logout

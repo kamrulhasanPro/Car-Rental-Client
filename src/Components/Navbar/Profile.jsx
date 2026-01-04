@@ -11,6 +11,7 @@ import {
 import { Link, useLocation } from "react-router";
 import ThemeToggle from "../Theme/ThemeToggle";
 import { RiHomeFill } from "react-icons/ri";
+import HelpCenterModal from "../Modal/HelpCenterModal";
 
 const Profile = () => {
   const { user, signOutUser } = useAuth();
@@ -61,10 +62,13 @@ const Profile = () => {
           )}
 
           {/* help center */}
-          <Link className="link_style">
+          <button
+            className="link_style w-full cursor-pointer"
+            onClick={() => document.getElementById("support_modal").showModal()}
+          >
             <MdOutlineSupportAgent size={20} />
             Help Center
-          </Link>
+          </button>
 
           {/* toggle theme */}
           <div className="link_style cursor-pointer">
@@ -78,6 +82,7 @@ const Profile = () => {
             Logout
           </button>
         </div>
+        <HelpCenterModal />
       </div>
     </CustomDropdown>
   );

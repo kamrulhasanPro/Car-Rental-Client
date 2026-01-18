@@ -1,31 +1,81 @@
-# **App Name:** Car Rental
+# 🚗 Car Rental – Full Stack MERN Application
 
-**Live Client Site URL:** [https://car-rental-9358d.web.app](https://car-rental-9358d.web.app)
+🔗 **Live Link:** https://car-rental-9358d.web.app   
 
-**Live Server Site URL:** [https://car-rental-server-pi-three.vercel.app](https://car-rental-server-pi-three.vercel.app)
+Car Rental is a **modern, responsive, and feature-rich car rental platform** built with the MERN stack.  
+It allows users to **browse, search, filter, sort, and book cars**, while authenticated users can manage cars and bookings through a **dedicated dashboard**.
 
-Car Rental is a modern and responsive website built in React. It allows easily search, browse, rant car, update, delete, cars filtering, cars sorting and post your car. I try batter UI design. 
+---
 
+## ✨ Features
 
-## Features
-- 🔍 **Car Search Filter & Sorting:**
-User can search by car name. If user know brand filter and Sorting with High to Low price, Low to High Price, Newest, Oldest.
-- 🧭 **Slider:** Use  beautiful slider based on car showing with automatic and navigation.
-- 💳 **Car Booking System:** If user know book a car as if implement Car Booking System.
-- 👤 **User Authentication:** Implement secure login and registration system with Firebase. 
-- 🧠 **Responsive & Animated UI:** Try keeping UI responsive and Animated.
-- 🔒 **Protected Routes:** User added car and booked car show just only accessible logged-in user.
+### 🚘 Car Browsing & Booking
+- Browse cars with detailed information
+- Search cars by name
+- Filter cars by brand
+- Sort cars by:
+  - Price (Low → High)
+  - Price (High → Low)
+  - Newest → Oldest
+- Car booking system with authentication
+- Add, update, and delete cars (protected routes)
 
+### 🧭 Modern UI & UX
+- Dark / Light theme toggle
+- Fully responsive design
+- Smooth scrolling
+- Framer Motion animations
+- Slider / carousel for car showcase
+
+### 📊 Dashboard
+- Separate dashboard layout
+- Overview with charts & statistics
+- Profile update functionality
+- Dashboard navigation:
+  - Overview
+  - My Bookings
+  - Car Listings
+  - Add New Car
+
+### 🔐 Authentication & Security
+- Firebase Authentication (Email & Password)
+- Protected routes for bookings and dashboard access
+
+### 📬 Communication
+- Newsletter subscription system
+- Contact form (messages delivered to email)
+- Toast notifications & alert feedback
 
 ---
 
 ## 🛠️ Tech Stack
-- **Frontend:** React, React Router, Tailwind CSS, Framer Motion, Daisy ui, React Tooltip, React Icon, React Toastify, SweetAlert2, React Swiper 
-- **Backend API:** Node.js, Express.js 
-- **Authentication:** Firebase 
-- **Database:** MongoDB
-- **HTTP Client:** Axios  
-- **Hosting:** Vercel / Firebase  
+
+### Frontend
+- React
+- React Router
+- Tailwind CSS
+- DaisyUI
+- Framer Motion
+- Swiper
+- Axios
+- React Icons
+- React Tooltip
+- React Toastify
+- SweetAlert2 
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- CORS
+- Dotenv
+
+### Authentication
+- Firebase
+
+### Hosting
+- Client: Firebase
+- Server: Vercel 
 
 ---
 
@@ -40,6 +90,7 @@ react-router-dom
 axios
 tailwindcss
 daisyui
+lenis
 framer-motion
 react-tooltip
 react-icons
@@ -66,24 +117,24 @@ nodemon
 
 ```
 git clone https://github.com/kamrulhasanPro/Car-Rental-Client.git
+git clone https://github.com/kamrulhasanPro/Car-Rental-Server.git
 ```
 
 ### 2️⃣ Client Setup
 
 ```
-cd client
+cd Car-Rental-Client
 npm install
 npm run dev
 ```
-Create a `.env` file in the server folder:
-and added firebase config key
+Create a `.env` file in the client folder and add Firebase configuration keys.
 
 
 
 ### 3️⃣ Server Setup
 
 ```
-cd ../server
+cd Car-Rental-Server
 npm install
 ```
 
@@ -98,7 +149,18 @@ Start the server:
 ```
 npm start
 ```
+---
 
+## 🚀 Future Improvements
+- Payment gateway integration
+- Admin role management
+- Email confirmation for bookings
+
+---
+## 👨‍💻 Author
+
+**Kamrul Hasan Miazi**
+Frontend / MERN Stack Developer
 ---
 
 ## 🎉 Thank You

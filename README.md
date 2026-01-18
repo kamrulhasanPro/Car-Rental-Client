@@ -156,12 +156,12 @@ npm start
 - Admin role management
 - Email confirmation for bookings
 
----
 ## 👨‍💻 Author
 
 **Kamrul Hasan Miazi**
+
 Frontend / MERN Stack Developer
----
+
 
 ## 🎉 Thank You
 
